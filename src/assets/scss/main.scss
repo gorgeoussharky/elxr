@@ -7,6 +7,7 @@
 @import "~bootstrap/scss/modal";
 @import "~sass-rem/rem";
 @import "mixins/utility";
+@import "mixins/stars";
 @import "base/variables";
 @import "base/fonts";
 @import "base/reset";
@@ -18,3 +19,4 @@
 @import "components/form";
 @import "layout/header";
 @import "layout/footer";
+@import "pages/frontpage";
