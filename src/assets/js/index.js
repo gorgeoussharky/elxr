@@ -1,2 +1,2 @@
 import '../scss/main.scss';
-import './app.ts';
+import './frontpage.js';

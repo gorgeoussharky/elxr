@@ -1,3 +1,11 @@
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1200px
+);
+
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
@@ -6,6 +14,8 @@
 @import "~bootstrap/scss/grid";
 @import "~bootstrap/scss/modal";
 @import "~sass-rem/rem";
+@import "~flickity";
+@import "~fullpage.js/dist/fullpage.css";
 @import "mixins/utility";
 @import "mixins/stars";
 @import "base/variables";
@@ -13,6 +23,7 @@
 @import "base/reset";
 @import "base/base";
 @import "base/typography";
+@import "base/keyframes";
 @import "components/buttons";
 @import "components/modals";
 @import "components/breadcrumbs";

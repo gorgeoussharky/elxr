@@ -1,3 +1,36 @@
-%btn-accent {
-    color: $accent;
+%btn-outline {
+    font-size: rem(20px);
+    border: 2px solid #FFFFFF;
+    color: #fff;
+    border-radius: 99px;
+    padding: rem(19px 30px);
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 350ms;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    svg path {
+        transition: 350ms;
+    }
+
+    svg,img {
+        margin-right: rem(8px);
+    }
+
+    &:hover {
+        background-color: #fff;
+        color: $dark;
+        transition: 350ms;
+
+        svg {
+            path {
+                fill: $dark;
+                transition: 350ms;
+
+            }
+        }
+    }
 }
