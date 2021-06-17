@@ -38,6 +38,32 @@
         </div>
       </section>
       <section class="frontpage__use-cases use-cases section">
+        <div class="use-cases__clouds-wrap">
+          <div class="use-cases__clouds">
+            <picture class='use-cases__cloud'>
+              <source srcset='<%=require(`@assets/img/bg/clouds.png`)%>.webp' type='image/webp'>
+              <img src='<%=require(`@assets/img/bg/clouds.png`)%>' alt=''>
+            </picture>
+          </div>
+          <div class="use-cases__clouds">
+            <picture class='use-cases__cloud'>
+              <source srcset='<%=require(`@assets/img/bg/clouds.png`)%>.webp' type='image/webp'>
+              <img src='<%=require(`@assets/img/bg/clouds.png`)%>' alt=''>
+            </picture>
+          </div>
+          <div class="use-cases__clouds">
+            <picture class='use-cases__cloud'>
+              <source srcset='<%=require(`@assets/img/bg/clouds.png`)%>.webp' type='image/webp'>
+              <img src='<%=require(`@assets/img/bg/clouds.png`)%>' alt=''>
+            </picture>
+          </div>
+          <div class="use-cases__clouds">
+            <picture class='use-cases__cloud'>
+              <source srcset='<%=require(`@assets/img/bg/clouds.png`)%>.webp' type='image/webp'>
+              <img src='<%=require(`@assets/img/bg/clouds.png`)%>' alt=''>
+            </picture>
+          </div>
+        </div>
         <div class="container">
           <div class="use-cases__wrap">
             <h2 class="use-cases__heading">
@@ -50,62 +76,6 @@
                     stroke="white" stroke-width="2" />
                 </svg>
               </button>
-              <div class="use-cases__clouds-wrap">
-                <div class="use-cases__clouds">
-                  <picture class='use-cases__cloud use-cases__cloud--1'>
-                    <source srcset='<%=require(`@assets/img/bg/cloud1.png`)%>.webp' type='image/webp'>
-                    <img src='<%=require(`@assets/img/bg/cloud1.png`)%>' alt=''>
-                  </picture>
-                  <picture class='use-cases__cloud use-cases__cloud--2'>
-                    <source srcset='<%=require(`@assets/img/bg/cloud2.png`)%>.webp' type='image/webp'>
-                    <img src='<%=require(`@assets/img/bg/cloud2.png`)%>' alt=''>
-                  </picture>
-                  <picture class='use-cases__cloud use-cases__cloud--3'>
-                    <source srcset='<%=require(`@assets/img/bg/cloud3.png`)%>.webp' type='image/webp'>
-                    <img src='<%=require(`@assets/img/bg/cloud3.png`)%>' alt=''>
-                  </picture>
-                  <picture class='use-cases__cloud use-cases__cloud--4'>
-                    <source srcset='<%=require(`@assets/img/bg/cloud4.png`)%>.webp' type='image/webp'>
-                    <img src='<%=require(`@assets/img/bg/cloud4.png`)%>' alt=''>
-                  </picture>
-                </div>
-                <div class="use-cases__clouds">
-                  <picture class='use-cases__cloud use-cases__cloud--1'>
-                    <source srcset='<%=require(`@assets/img/bg/cloud1.png`)%>.webp' type='image/webp'>
-                    <img src='<%=require(`@assets/img/bg/cloud1.png`)%>' alt=''>
-                  </picture>
-                  <picture class='use-cases__cloud use-cases__cloud--2'>
-                    <source srcset='<%=require(`@assets/img/bg/cloud2.png`)%>.webp' type='image/webp'>
-                    <img src='<%=require(`@assets/img/bg/cloud2.png`)%>' alt=''>
-                  </picture>
-                  <picture class='use-cases__cloud use-cases__cloud--3'>
-                    <source srcset='<%=require(`@assets/img/bg/cloud3.png`)%>.webp' type='image/webp'>
-                    <img src='<%=require(`@assets/img/bg/cloud3.png`)%>' alt=''>
-                  </picture>
-                  <picture class='use-cases__cloud use-cases__cloud--4'>
-                    <source srcset='<%=require(`@assets/img/bg/cloud4.png`)%>.webp' type='image/webp'>
-                    <img src='<%=require(`@assets/img/bg/cloud4.png`)%>' alt=''>
-                  </picture>
-                </div>
-                <div class="use-cases__clouds">
-                  <picture class='use-cases__cloud use-cases__cloud--1'>
-                    <source srcset='<%=require(`@assets/img/bg/cloud1.png`)%>.webp' type='image/webp'>
-                    <img src='<%=require(`@assets/img/bg/cloud1.png`)%>' alt=''>
-                  </picture>
-                  <picture class='use-cases__cloud use-cases__cloud--2'>
-                    <source srcset='<%=require(`@assets/img/bg/cloud2.png`)%>.webp' type='image/webp'>
-                    <img src='<%=require(`@assets/img/bg/cloud2.png`)%>' alt=''>
-                  </picture>
-                  <picture class='use-cases__cloud use-cases__cloud--3'>
-                    <source srcset='<%=require(`@assets/img/bg/cloud3.png`)%>.webp' type='image/webp'>
-                    <img src='<%=require(`@assets/img/bg/cloud3.png`)%>' alt=''>
-                  </picture>
-                  <picture class='use-cases__cloud use-cases__cloud--4'>
-                    <source srcset='<%=require(`@assets/img/bg/cloud4.png`)%>.webp' type='image/webp'>
-                    <img src='<%=require(`@assets/img/bg/cloud4.png`)%>' alt=''>
-                  </picture>
-                </div>
-              </div>
               <div class="use-cases__carousel-wrap">
                 <% var data=require('@data/data.json') %>
                   <% data.cases.forEach((el)=> { %>
@@ -187,7 +157,7 @@
           </div>
         </div>
       </section>
-      <section class="frontpage__advantage-block advantage-block advantage-block--1 section" data-color="#9d01ff"
+      <section class="frontpage__advantage-block advantage-block advantage-block--1 section" data-color="#a201ff"
         data-rotation="0">
         <div class="container">
           <div class="advantage-block__wrap">
@@ -226,7 +196,7 @@
           </div>
         </div>
       </section>
-      <section class="frontpage__advantage-block advantage-block advantage-block--2 section" data-color="#3891ff"
+      <section class="frontpage__advantage-block advantage-block advantage-block--2 section" data-color="#378fff"
         data-rotation="90">
         <div class="container">
           <video class="advantage-block__video advantage-block__video--hidden" autoplay loop>
@@ -263,7 +233,7 @@
           </div>
         </div>
       </section>
-      <section class="frontpage__advantage-block advantage-block advantage-block--3 section" data-color="#e3549f"
+      <section class="frontpage__advantage-block advantage-block advantage-block--3 section" data-color="#e4569e"
         data-rotation="125">
         <div class="container">
           <video class="advantage-block__video advantage-block__video--hidden" autoplay loop>
@@ -300,7 +270,7 @@
           </div>
         </div>
       </section>
-      <div class="frontpage__foot section fp-auto-height">
+      <div class="frontpage__foot section fp-auto-height" data-color="#e4569e">
         <section class="frontpage__shops-list shops-list">
           <div class="shops-list__wrap">
             <div class="container">

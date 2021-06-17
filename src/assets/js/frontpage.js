@@ -1,6 +1,6 @@
 /* eslint-disable curly */
 /* eslint-disable no-console */
-import Flickity from 'flickity-fade';
+import Flickity from 'flickity';
 import 'fullpage.js/vendors/scrolloverflow.min.js';
 import Fullpage from 'fullpage.js';
 import './ticker';
@@ -17,7 +17,6 @@ jQuery(($) => {
             freeScroll: true,
         },
         onLeave: function (origin, destination) {
-            // eslint-disable-next-line no-console
             var originVideo = origin.item.querySelector('.advantage-block__video');
             var originInfo = origin.item.querySelector('.advantage-block__info');
             var destVideo = destination.item.querySelector('.advantage-block__video');
@@ -57,8 +56,8 @@ jQuery(($) => {
         cellAlign: 'center',
         prevNextButtons: false,
         wrapAround: true,
-        fade: true,
         adaptiveHeight: true,
+        autoplay: true,
     });
 
     document.querySelector('.use-cases__carousel-control--prev').addEventListener('click', (e) => {

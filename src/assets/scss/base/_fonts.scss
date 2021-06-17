@@ -31,4 +31,4 @@ $font-weight: 400, $font-style: normal, $support-required: 'modern') {
     }
 }
 
-/* @include font-face("Montserrat", "@assets/fonts/Montserrat-Black", 900, normal, "modern"); */
+@include font-face("Helvetica", "@assets/fonts/Helvetica-Regular", 400, normal, "modern");
