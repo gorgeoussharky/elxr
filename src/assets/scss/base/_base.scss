@@ -5,22 +5,22 @@ html {
         overflow: hidden;
     }
 
-/*     @include media-breakpoint-down(lg) {
+    @include media-breakpoint-down(lg) {
         font-size: 14px;
-    } */
+    }
 
     @include media-breakpoint-down(md) {
         font-size: 13px;
     }
 
     @include media-breakpoint-down(sm) {
-        font-size: 12px;
+        font-size: 16px;
     }
 }
 
 body {
     overflow-x: hidden;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     background: #F4F7F9;
 
     @include media-breakpoint-down(sm) {

@@ -3,6 +3,23 @@
     padding-bottom: rem(80px);
     color: #fff;
 
+    @include media-breakpoint-down(md) {
+        padding-top: rem(0);
+        padding-bottom: rem(36px);
+    }
+
+    &__slogan-ticker {
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+
+    &__row {
+        @include media-breakpoint-down(md) {
+            flex-flow: wrap-reverse;
+        }
+    }
+
     &__content {
         margin-top: rem(76px);
     }
@@ -72,6 +89,7 @@
     &__list {
         @include unlist;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
     }
 
@@ -85,6 +103,10 @@
         &:nth-of-type(odd) {
             animation: socialsFloat 4s linear infinite;
             animation-direction: reverse;
+        }
+
+        @include media-breakpoint-down(md) {
+            margin-bottom: rem(36px);
         }
     }
 
