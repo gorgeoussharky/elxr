@@ -2,7 +2,9 @@
 
   <div class="frontpage">
 
-    <div class="frontpage__advantage-block-circle"></div>
+    <div class="frontpage__advantage-block-circle">
+      <img src="" alt="">
+    </div>
 
     <div class="frontpage__wrap" id="frontpage">
       <section class="frontpage__hero hero section">
@@ -158,7 +160,7 @@
         </div>
       </section>
       <section class="frontpage__advantage-block advantage-block advantage-block--1 section" data-color="#a201ff"
-        data-rotation="0">
+        data-rotation="0" data-icon="<%=require(`@assets/img/icons/ligtning.svg`)%>">
         <div class="container">
           <div class="advantage-block__wrap">
             <video class="advantage-block__video advantage-block__video--hidden" autoplay loop>
@@ -197,7 +199,7 @@
         </div>
       </section>
       <section class="frontpage__advantage-block advantage-block advantage-block--2 section" data-color="#378fff"
-        data-rotation="90">
+        data-rotation="90" data-icon="<%=require(`@assets/img/icons/cancel.svg`)%>" >
         <div class="container">
           <video class="advantage-block__video advantage-block__video--hidden" autoplay loop>
             <source src="<%=require(`@assets/video/advantage_2_xl.mp4`)%>" type="video/mp4">
@@ -227,17 +229,17 @@
                 Исследования
               </a>
             </div>
-            <div class="advantage-block__info-content">
+            <div class="advantage-block__text">
               <img src="<%=require('@assets/img/icons/advantage2.svg')%>" alt="">
             </div>
           </div>
         </div>
       </section>
       <section class="frontpage__advantage-block advantage-block advantage-block--3 section" data-color="#e4569e"
-        data-rotation="125">
+        data-rotation="125" data-icon="<%=require(`@assets/img/icons/smile.svg`)%>" >
         <div class="container">
           <video class="advantage-block__video advantage-block__video--hidden" autoplay loop>
-            <source src="<%=require(`@assets/video/advantage_3_xl.mp4`)%>" type="video/mp4">
+            <source src="<%=require(`@assets/video/advantage_3_xl.mp4`)%>" type="video/mp4" >
           </video>
           <div class="advantage-block__info">
             <h2 class="advantage-block__heading">
@@ -264,7 +266,7 @@
                 Исследования
               </a>
             </div>
-            <div class="advantage-block__info-content">
+            <div class="advantage-block__text">
               <img src="<%=require('@assets/img/icons/advantage3.svg')%>" alt="">
             </div>
           </div>
@@ -274,11 +276,11 @@
         <section class="frontpage__shops-list shops-list">
           <div class="shops-list__wrap">
             <div class="container">
-              <div class="row">
+              <div class="row shops-list__row">
                 <div class="col-md-6">
-                  <h2 class="shops-list__heading">
+                  <div class="shops-list__heading">
                     Go hard. Recover smart.
-                  </h2>
+                  </div>
                   <div class="shops-list__subheading">
                     Где заказать:
                   </div>
