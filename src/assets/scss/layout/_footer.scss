@@ -3,6 +3,11 @@
     padding-bottom: rem(80px);
     color: #fff;
 
+    @include media-breakpoint-down(lg) {
+        padding-top: rem(100px);
+        padding-bottom: rem(60px);
+    }
+
     @include media-breakpoint-down(md) {
         padding-top: rem(0);
         padding-bottom: rem(36px);
@@ -91,18 +96,33 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
+
+        @include media-breakpoint-down(lg) {
+            margin-top: rem(70px);
+        }
+
+        @include media-breakpoint-down(md) {
+            margin-bottom: rem(70px);
+        }
+
+        @include media-breakpoint-down(sm) {
+            margin: rem(40px 0);
+        }
     }
 
     &__item {
         margin-left: rem(36px);
 
-        &:nth-of-type(even) {
-            animation: socialsFloatReverse 4s linear infinite;
+        &:nth-of-type(1) {
+            animation: socialsFloat 7s linear infinite;
         }
 
-        &:nth-of-type(odd) {
-            animation: socialsFloat 4s linear infinite;
-            animation-direction: reverse;
+        &:nth-of-type(2) {
+            animation: socialsFloatSecond 7s linear infinite;
+        }
+
+        &:nth-of-type(3) {
+            animation: socialsFloatThird 7s linear infinite;
         }
 
         @include media-breakpoint-down(md) {
@@ -113,8 +133,8 @@
     &__link {
         color: #fff;
         text-decoration: none;
-        width: 228px;
-        height: 228px;
+        width: 210px;
+        height: 210px;
         display: flex;
         align-items: center;
         justify-content: center;

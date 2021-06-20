@@ -2,14 +2,44 @@
     &__dialog {
         @extend .modal-dialog;
         @extend .modal-dialog-centered;
+
+
+        &--full {
+            max-width: 100%;
+            height: 100vh;
+            margin: auto;
+
+            .modal__content {
+                height: 100%;
+            }
+
+            @include media-breakpoint-up(xl) {
+                .row {
+                    margin: rem(0 -30px);
+                }
+
+                [class*='col-'] {
+                    padding: rem(0 30px);
+                }
+            }
+
+
+        }
     }
 
     &__content {
         @extend .modal-content;
+        border-radius: 0;
+        border: none;
+        background-color: rgba(#fff, 0.2);
     }
 
     &__body {
         @extend .modal-body;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     &__title {
@@ -27,4 +57,40 @@
         }
     }
 
+}
+
+.modal-table {
+    &__title {
+        font-size: rem(20px);
+        color: #fff;
+        margin-bottom: rem(32px);
+        text-align: center;
+    }
+
+    &__table {
+
+        th,
+        td {
+            padding: rem(16px 20px);
+            font-size: rem(14px);
+            border: 2px solid #FFFFFF;
+            color: #fff;
+
+            &:last-of-type {
+                text-align: right;
+            }
+        }
+
+        th {
+            font-weight: 500;
+        }
+    }
+
+    &__subheading {
+        margin-top: rem(32px);
+        font-size: rem(20px);
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+    }
 }

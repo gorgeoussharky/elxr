@@ -3,12 +3,13 @@
 import Flickity from 'flickity';
 import 'fullpage.js/vendors/scrolloverflow.min.js';
 import Fullpage from 'fullpage.js';
+import 'bootstrap';
 import './ticker';
 
 jQuery(($) => {
     var carousel;
     // eslint-disable-next-line no-new
-    new Fullpage('#frontpage', {
+    var fullpage = new Fullpage('#frontpage', {
         autoScrolling: true,
         verticalCentered: true,
         scrollOverflow: true,
@@ -24,6 +25,15 @@ jQuery(($) => {
             var color = destination.item.getAttribute('data-color');
             var rotation = destination.item.getAttribute('data-rotation');
             var icon = destination.item.getAttribute('data-icon');
+
+            var ticker = destination.item.querySelector('.slogan-ticker__ticker');
+            if (ticker) {
+                Flickity.data(ticker).resize();
+            }
+
+            if (destination.isLast) {
+                document.querySelector('.frontpage__foot').classList.add('frontpage__foot--gradient');
+            }
 
             if (originVideo) {
                 originVideo.classList.add('advantage-block__video--hidden');
@@ -95,5 +105,6 @@ jQuery(($) => {
         e.preventDefault();
         $(this).toggleClass('faq-item__toggler--expanded');
         $(this).parents('.faq__item').find('.faq-item__content').slideToggle();
+        fullpage.reBuild();
     });
 });

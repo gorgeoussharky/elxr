@@ -24,31 +24,58 @@
 
 @keyframes socialsFloat {
     0% {
-        transform: translateY(-26px);
+        transform: translate(40px, -30px);
     }
 
-    50% {
-        transform: translateY(26px);
+    25% {
+        transform: translate(0, -40px);
+    }
+
+    75% {
+        transform: translate(40px, -75px);
     }
 
     100% {
-        transform: translateY(-26px);
+        transform: translate(40px, -30px);
     }
 }
 
-@keyframes socialsFloatReverse {
+@keyframes socialsFloatSecond {
     0% {
-        transform: translateY(26px);
+        transform: translate(-36px, -20px);
     }
 
-    50% {
-        transform: translateY(-26px);
+    25% {
+        transform: translate(0, 20px);
+    }
+
+    75% {
+        transform: translate(36px, 0);
     }
 
     100% {
-        transform: translateY(26px);
+        transform: translate(-36px, -20px);
     }
 }
+
+@keyframes socialsFloatThird {
+    0% {
+        transform: translate(-10px, 36px);
+    }
+
+    25% {
+        transform: translate(0, -20px);
+    }
+
+    75% {
+        transform: translate(30px, 24px);
+    }
+
+    100% {
+        transform: translate(-10px, 36px);
+    }
+}
+
 
 @keyframes ballBounce {
     0% {

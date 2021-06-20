@@ -5,6 +5,10 @@ html {
         overflow: hidden;
     }
 
+    @include media-breakpoint-down(xl) {
+        font-size: 15px;
+    }
+
     @include media-breakpoint-down(lg) {
         font-size: 14px;
     }
