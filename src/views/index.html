@@ -18,7 +18,7 @@
             <div class="row hero__row">
               <div class="col-md-7">
                 <div class="hero__img">
-                  <img src="<%=require('@assets/img/product.gif')%>" alt="">
+                  <img loading="lazy" src="<%=require('@assets/img/product.gif')%>" alt="">
                 </div>
               </div>
               <div class="col-md-5">
@@ -85,7 +85,7 @@
                       <div class="case-item__wrap">
                         <picture class='case-item__img'>
                           <source srcset="<%=require(`@ph/${el.img}`) %>.webp" type='image/webp'>
-                          <img src='<%=require(`@ph/${el.img}`) %>' alt='<%=el.title%>'>
+                          <img loading="lazy" src='<%=require(`@ph/${el.img}`) %>' alt='<%=el.title%>'>
                         </picture>
                         <div class="case-item__title">
                           <%= el.title %>
@@ -154,7 +154,7 @@
             <div class="slogan-ticker__ball-light slogan-ticker__ball-light--coral"></div>
             <picture class='slogan-ticker__ball-img'>
               <source srcset='<%=require(`@assets/img/icons/ball.png`) %>.webp' type='image/webp'>
-              <img src='<%=require(`@assets/img/icons/ball.png`) %>' alt=''>
+              <img loading="lazy" src='<%=require(`@assets/img/icons/ball.png`) %>' alt=''>
             </picture>
           </div>
         </div>
@@ -163,7 +163,7 @@
         data-rotation="0" data-icon="<%=require(`@assets/img/icons/ligtning.svg`)%>">
         <div class="container">
           <div class="advantage-block__wrap">
-            <video class="advantage-block__video advantage-block__video--hidden" autoplay loop>
+            <video preload="metadata" class="advantage-block__video advantage-block__video--hidden" loop>
               <source src="<%=require(`@assets/video/advantage_1_xl.mp4`)%>" type="video/mp4">
             </video>
             <div class="advantage-block__info advantage-block__info--hidden">
@@ -201,7 +201,7 @@
       <section class="frontpage__advantage-block advantage-block advantage-block--2 section" data-color="#378fff"
         data-rotation="90" data-icon="<%=require(`@assets/img/icons/cancel.svg`)%>" >
         <div class="container">
-          <video class="advantage-block__video advantage-block__video--hidden" autoplay loop>
+          <video preload="metadata" class="advantage-block__video advantage-block__video--hidden" loop>
             <source src="<%=require(`@assets/video/advantage_2_xl.mp4`)%>" type="video/mp4">
           </video>
           <div class="advantage-block__info">
@@ -238,7 +238,7 @@
       <section class="frontpage__advantage-block advantage-block advantage-block--3 section" data-color="#e3549f"
         data-rotation="125" data-icon="<%=require(`@assets/img/icons/smile.svg`)%>" >
         <div class="container">
-          <video class="advantage-block__video advantage-block__video--hidden" autoplay loop>
+          <video preload="metadata" class="advantage-block__video advantage-block__video--hidden" loop>
             <source src="<%=require(`@assets/video/advantage_3_xl.mp4`)%>" type="video/mp4" >
           </video>
           <div class="advantage-block__info">
@@ -289,7 +289,7 @@
                       <a href="" class="shops-list__link">
                         <picture class="shops-list__link-img">
                           <source srcset='<%=require(`@assets/img/icons/ozon.jpg`)%>.webp' type='image/webp'>
-                          <img src='<%=require(`@assets/img/icons/ozon.jpg`)%>' alt='Ozon'>
+                          <img loading="lazy" src='<%=require(`@assets/img/icons/ozon.jpg`)%>' alt='Ozon'>
                         </picture>
                         Ozon
                       </a>
@@ -298,7 +298,7 @@
                       <a href="" class="shops-list__link" data-bs-toggle="modal" data-bs-target="#yandexLavkaModal" data-tab="#third">
                         <picture class="shops-list__link-img">
                           <source srcset='<%=require(`@assets/img/icons/yandex.jpg`)%>.webp' type='image/webp'>
-                          <img src='<%=require(`@assets/img/icons/yandex.jpg`)%>' alt='Яндекс.Лавка'>
+                          <img loading="lazy" src='<%=require(`@assets/img/icons/yandex.jpg`)%>' alt='Яндекс.Лавка'>
                         </picture>
                         Яндекс.Лавка
                       </a>
@@ -307,7 +307,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="shops-list__img">
-                    <img src="<%=require('@assets/img/product.gif')%>" alt="">
+                    <img loading="lazy" src="<%=require('@assets/img/product.gif')%>" alt="">
                   </div>
                 </div>
               </div>
