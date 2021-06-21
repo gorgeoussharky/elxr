@@ -1,4 +1,4 @@
-jQuery(() => {
+document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.tabs__nav-link').forEach((el) => {
         el.addEventListener('click', function (e) {
             var target = this.getAttribute('href');

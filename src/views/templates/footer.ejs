@@ -1,4 +1,4 @@
-<footer class="footer fp-auto-height">
+<footer class="footer <%= title == 'Frontpage' ? 'fp-auto-height' : 'footer--gradient' %>">
 
     <div class="footer__slogan-ticker slogan-ticker">
         <div class="slogan-ticker__ticker">
@@ -86,10 +86,12 @@
 
 </footer>
 
+<% if (title == "Frontpage") { %>
+</div>
+</div>
+</div>
+<% } %>
 
-</div>
-</div>
-</div>
 
 <div id="compositionModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal__dialog modal__dialog--full modal-dialog" role="document">

@@ -105,15 +105,17 @@
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 
@@ -124,5 +126,87 @@
 
     100% {
         transform: translateX(200vw);
+    }
+}
+
+
+@keyframes ball1 {
+    0% {
+        left: 20%;
+        top: 0;
+    }
+
+    25% {
+        left: 0%;
+        top: 10%;
+    }
+
+    50% {
+        left: 30%;
+        top: 40%;
+    }
+
+    75% {
+        left: 0%;
+        top: 20%;
+    }
+
+    0% {
+        left: 20%;
+        top: 0;
+    }
+}
+
+@keyframes ball2 {
+    0% {
+        right: 0;
+        top: 20%;
+    }
+
+    25% {
+        right: 20%;
+        top: 0%;
+    }
+
+    50% {
+        right: 30%;
+        top: 10%;
+    }
+
+    75% {
+        right: 10%;
+        top: 10%;
+    }
+
+    0% {
+        right: 0;
+        top: 20%;
+    }
+}
+
+@keyframes ball3 {
+    0% {
+        bottom: -10%;
+        left: 40%;
+    }
+
+    25% {
+        bottom: 20%;
+        left: 20%;
+    }
+
+    50% {
+        bottom: 10%;
+        left: 70%;
+    }
+
+    75% {
+        bottom: 30%;
+        left: 40%;
+    }
+
+    0% {
+        bottom: -10%;
+        left: 40%;
     }
 }

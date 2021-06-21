@@ -1,4 +1,4 @@
-jQuery(() => {
+document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.research-item__toggler, .research-item__heading').forEach((el) => {
         el.addEventListener('click', function(e) {
             e.preventDefault();

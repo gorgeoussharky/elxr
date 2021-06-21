@@ -1,0 +1,56 @@
+.page {
+
+    &__wrap {
+        position: relative;
+    }
+
+    &__content-wrap {
+        padding-top: rem(175px);
+        position: relative;
+
+        @include media-breakpoint-down(md) {
+            padding-top: rem(140px);
+            width: 95%;
+            margin: auto;
+        }
+    }
+
+
+    &__heading {
+        margin-bottom: rem(120px);
+        max-width: 670px;
+
+        @include media-breakpoint-down(md) {
+            margin-bottom: rem(60px);
+        }
+    }
+
+    &__content {
+
+        h2 {
+            margin-bottom: rem(24px);
+        }
+        h3 {
+            margin-bottom: rem(12px);
+        }
+
+        p {
+            margin-bottom: rem(24px);
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: rem(72px);
+        }
+
+        ol li {
+            margin-bottom: rem(24px);
+        }
+    }
+}
+
+
+
+
+
+

@@ -3,6 +3,16 @@
     padding-bottom: rem(140px);
     color: #fff;
 
+    @include media-breakpoint-down(lg) {
+        padding-top: rem(100px);
+        padding-bottom: rem(60px);
+    }
+
+    @include media-breakpoint-down(md) {
+        padding-top: rem(0);
+        padding-bottom: rem(36px);
+    }
+
     &--gradient {
         background: linear-gradient(-45deg, #23d5ab, #23a6d5, #e4569e, #e4569e);
         background-size: 400% 400%;
@@ -10,6 +20,11 @@
         animation: gradient 15s ease infinite;
         padding-top: 100vh;
         position: relative;
+
+        @include media-breakpoint-down(md) {
+            padding-top: 50vh;
+        }
+
 
         &::before {
             content: '';
@@ -21,16 +36,6 @@
             background-image: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 60%);
 
         }
-    }
-
-    @include media-breakpoint-down(lg) {
-        padding-top: rem(100px);
-        padding-bottom: rem(60px);
-    }
-
-    @include media-breakpoint-down(md) {
-        padding-top: rem(0);
-        padding-bottom: rem(36px);
     }
 
     &__slogan-ticker {
