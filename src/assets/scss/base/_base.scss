@@ -22,14 +22,14 @@ html {
     }
 }
 
+:root {
+    --bg-color: #03070E;
+}
+
 body {
     overflow-x: hidden;
     font-family: 'Helvetica', sans-serif;
-    background: #F4F7F9;
-
-    @include media-breakpoint-down(sm) {
-        background: #fff;
-    }
+    background: #fff;
 }
 
 .sr-only {

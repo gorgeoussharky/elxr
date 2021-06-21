@@ -5,7 +5,7 @@ $shadows-big: multiple-box-shadow(100);
 .frontpage {
 
     &__wrap {
-        background-color: $dark;
+        background-color: var(--bg-color);
     }
 
     &__advantage-block {

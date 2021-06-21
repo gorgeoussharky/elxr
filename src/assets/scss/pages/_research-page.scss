@@ -1,0 +1,132 @@
+.research-page {
+
+    &__wrap {
+        padding-top: rem(175px);
+        position: relative;
+    }
+
+    &__helper {
+        position: absolute;
+        right: 0;
+        top: 200px;
+    }
+
+    &__heading {
+        margin-bottom: rem(100px);
+        max-width: 670px;
+    }
+
+    &__type {
+        margin-bottom: rem(40px);
+    }
+
+    &__subheading {
+        font-size: rem(28px);
+        margin-bottom: rem(50px);
+        position: relative;
+
+        svg {
+            position: absolute;
+            display: block;
+            left: -46px;
+            top: 8px;
+
+        }
+    }
+
+    &__list {
+        @include unlist;
+    }
+
+    &__research-item {
+        position: relative;
+
+        &:not(:last-of-type) {
+            margin-bottom: rem(28px);
+        }
+    }
+}
+
+.research-item {
+    &__toggler {
+        width: 36px;
+        height: 36px;
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        left: -60px;
+        top: -8px;
+        z-index: 10;
+        transition: 350ms;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 1px;
+            background-color: $dark;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            transition: 350ms;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 16px;
+            background-color: $dark;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            transition: 350ms;
+        }
+    }
+
+    &__heading {
+        font-size: rem(14px);
+        cursor: pointer;
+    }
+
+    &__content {
+        display: none;
+        grid-template-columns: 60% auto;
+    }
+
+    &__info {
+        padding-right: rem(61px);
+    }
+
+    &__sources {
+        padding-left: rem(76px);
+        border-left: 1px solid $dark;
+        font-size: rem(14px);
+        display: flex;
+        align-items: flex-end;
+    }
+
+    &--active {
+
+        .research-item__toggler {
+            border-color: $dark;
+            transition: 350ms;
+            &::after {
+                opacity: 0;
+                transition: 350ms;
+            }
+        }
+
+        .research-item__heading {
+            display: none;
+        }
+
+        .research-item__content {
+            display: grid;
+        }
+    }
+}

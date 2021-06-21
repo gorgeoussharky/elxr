@@ -1,0 +1,30 @@
+table, .table {
+    th,
+    td {
+        padding: rem(16px 20px);
+        font-size: rem(14px);
+        border: 2px solid #000;
+        color: #000;
+        text-align: right;
+
+        @include media-breakpoint-down(sm) {
+            padding: rem(10px 16px);
+        }
+
+        &:first-of-type {
+            text-align: left;
+        }
+    }
+
+    th {
+        font-weight: 500;
+    }
+
+    &--light {
+        th,
+        td {
+            border-color: #fff;
+            color: #fff;
+        }
+    }
+}

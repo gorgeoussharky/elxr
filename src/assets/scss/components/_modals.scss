@@ -1,7 +1,47 @@
 .modal {
+
+    &.show {
+        .modal__dialog {
+            opacity: 1;
+            transition: opacity 0.3s ease-out;
+        }
+    }
+
+    .modal-dialog {
+        transform: none !important;
+    }
+
+    &-backdrop {
+        display: none;
+    }
+
+    &#compositionModal {
+        .modal__content {
+            background: transparent;
+
+            &::before {
+                content: '';
+                position: absolute;
+                background-color: var(--bg-color);
+                opacity: 0.85;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                transition: 350ms;
+            }
+        }
+    }
+
+
+
     &__dialog {
         @extend .modal-dialog;
         @extend .modal-dialog-centered;
+        opacity: 0;
+        transition: opacity 0.3s ease-out;
+
 
 
         &--full {
@@ -12,18 +52,6 @@
             .modal__content {
                 height: 100%;
             }
-
-            @include media-breakpoint-up(xl) {
-                .row {
-                    margin: rem(0 -30px);
-                }
-
-                [class*='col-'] {
-                    padding: rem(0 30px);
-                }
-            }
-
-
         }
     }
 
@@ -31,66 +59,90 @@
         @extend .modal-content;
         border-radius: 0;
         border: none;
-        background-color: rgba(#fff, 0.2);
+        position: relative;
+        background: linear-gradient(180deg, #8D11FF 27.08%, rgba(141, 17, 255, 0.75) 100%);
     }
 
     &__body {
         @extend .modal-body;
         margin: 0;
+        padding: 0;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @include media-breakpoint-down(md) {
+            width: 95%;
+            margin: auto;
+        }
     }
 
-    &__title {
-        @extend .modal-title;
+    &__heading {
+        font-size: rem(36px);
+        color: #fff;
+        margin-bottom: rem(100px);
+
+        @include media-breakpoint-down(md) {
+            margin-bottom: rem(60px);
+            font-size: rem(25px);
+        }
+    }
+
+    &__list {
+        @include unlist;
+        width: 100%;
+        max-width: 390px;
+
+        &-item {
+            color: #fff;
+            display: flex;
+            align-items: center;
+            margin-bottom: rem(56px);
+            font-size: rem(18px);
+
+            @include media-breakpoint-down(md) {
+                margin-bottom: rem(42px);
+
+                span {
+                    display: inline-block;
+                    max-width: 180px;
+                }
+            }
+
+            img {
+                margin-left: rem(72px);
+                border-radius: 15px;
+                box-shadow: 0px 0px 45px 5px rgba(255, 255, 255, 0.7);
+
+                @include media-breakpoint-down(md) {
+                    margin-left: rem(36px);
+                }
+            }
+
+            svg {
+                max-width: 360px;
+                margin-left: rem(14px);
+
+                @include media-breakpoint-down(md) {
+                    max-width: 250px;
+                }
+            }
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
     }
 
     &__close {
         position: absolute;
-        right: 25px;
-        top: 25px;
+        right: 45px;
+        top: 45px;
 
         @include media-breakpoint-down(sm) {
             top: 15px;
-            right: 15px;
+            right: 5px;
         }
-    }
-
-}
-
-.modal-table {
-    &__title {
-        font-size: rem(20px);
-        color: #fff;
-        margin-bottom: rem(32px);
-        text-align: center;
-    }
-
-    &__table {
-
-        th,
-        td {
-            padding: rem(16px 20px);
-            font-size: rem(14px);
-            border: 2px solid #FFFFFF;
-            color: #fff;
-
-            &:last-of-type {
-                text-align: right;
-            }
-        }
-
-        th {
-            font-weight: 500;
-        }
-    }
-
-    &__subheading {
-        margin-top: rem(32px);
-        font-size: rem(20px);
-        color: #fff;
-        text-transform: uppercase;
-        text-align: center;
     }
 }

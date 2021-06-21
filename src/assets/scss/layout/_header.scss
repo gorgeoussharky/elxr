@@ -22,4 +22,15 @@
         }
     }
 
+    &--dark {
+        .header__logo {
+            path {
+                fill: $dark;
+            }
+        }
+        .header__toggler span {
+            background: $dark;
+        }
+    }
+
 }

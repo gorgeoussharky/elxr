@@ -1,7 +1,27 @@
 .footer {
     padding-top: rem(200px);
-    padding-bottom: rem(80px);
+    padding-bottom: rem(140px);
     color: #fff;
+
+    &--gradient {
+        background: linear-gradient(-45deg, #23d5ab, #23a6d5, #e4569e, #e4569e);
+        background-size: 400% 400%;
+        background-position: 0% 50%;
+        animation: gradient 15s ease infinite;
+        padding-top: 100vh;
+        position: relative;
+
+        &::before {
+            content: '';
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-image: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 60%);
+
+        }
+    }
 
     @include media-breakpoint-down(lg) {
         padding-top: rem(100px);
@@ -141,7 +161,8 @@
         background: rgba(255, 255, 255, 0.5);
         border-radius: 50%;
 
-        img,svg {
+        img,
+        svg {
             max-width: 60%;
             max-height: 60%;
         }

@@ -5,6 +5,7 @@ import 'fullpage.js/vendors/scrolloverflow.min.js';
 import Fullpage from 'fullpage.js';
 import 'bootstrap';
 import './ticker';
+import './tabs';
 
 jQuery(($) => {
     var carousel;
@@ -65,8 +66,8 @@ jQuery(($) => {
                 document.querySelector('.frontpage__advantage-block-circle').classList.add('frontpage__advantage-block-circle--full-circle');
             }
 
-            if (color) document.querySelector('.frontpage__wrap').style.backgroundColor = color;
-            else document.querySelector('.frontpage__wrap').style.backgroundColor = '#03070E';
+            if (color) document.documentElement.style.setProperty('--bg-color', color);
+            else document.documentElement.style.setProperty('--bg-color', '#03070E');
 
             if (destination.index >= 3 && destination.index < 6) {
                 document.querySelector('.hero__stars-wrap').style.opacity = 0;
@@ -81,6 +82,21 @@ jQuery(($) => {
                 document.querySelector('.frontpage__advantage-block-circle').style.opacity = 0;
             }
         },
+    });
+
+    document.querySelectorAll('.modal').forEach((el) => {
+        el.addEventListener('show.bs.modal', (e) => {
+            var tabTarget = e.relatedTarget.getAttribute('data-tab');
+            fullpage.setAllowScrolling(false);
+            fullpage.setKeyboardScrolling(false);
+
+            if (tabTarget) document.querySelector(`.tabs__nav-link[href="${tabTarget}"]`).click();
+        });
+
+        el.addEventListener('hide.bs.modal', () => {
+            fullpage.setAllowScrolling(true);
+            fullpage.setKeyboardScrolling(true);
+        });
     });
 
     carousel = new Flickity('.use-cases__carousel-wrap', {
