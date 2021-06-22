@@ -14,7 +14,9 @@ jQuery(($) => {
         fullpage = new Fullpage('#frontpage', {
             autoScrolling: true,
             verticalCentered: true,
+            fitToSection: true,
             scrollOverflow: true,
+            bigSectionsDestination: 'top',
             scrollOverflowOptions: {
                 scrollbars: false,
                 freeScroll: true,
@@ -85,6 +87,14 @@ jQuery(($) => {
             },
         });
     }
+
+    document.querySelector('[data-click="order"]').addEventListener('click', () => {
+        fullpage.moveTo('foot');
+    });
+
+    document.querySelector('.hero__helper-arrow').addEventListener('click', () => {
+        fullpage.moveTo(2);
+    });
 
     document.querySelectorAll('.modal').forEach((el) => {
         el.addEventListener('show.bs.modal', (e) => {

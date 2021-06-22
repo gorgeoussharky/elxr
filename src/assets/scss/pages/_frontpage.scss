@@ -109,6 +109,7 @@ $shadows-big: multiple-box-shadow(100);
         }
     }
 
+
 }
 
 .hero {
@@ -284,7 +285,7 @@ $shadows-big: multiple-box-shadow(100);
 
         @include media-breakpoint-down(md) {
             font-size: rem(22px);
-            margin-bottom: rem(60px);
+            margin-bottom: rem(20px);
 
         }
     }
@@ -327,12 +328,20 @@ $shadows-big: multiple-box-shadow(100);
         .flickity-page-dots {
             bottom: -75px;
 
+            @include media-breakpoint-down(md) {
+                bottom: -30px;
+            }
+
             .dot {
                 border: 1px solid #FFFFFF;
                 background: transparent;
                 opacity: 1;
                 width: 24px;
                 height: 24px;
+
+                &::before {
+                    content: none;
+                }
 
                 @include media-breakpoint-down(md) {
                     width: 14px;
@@ -448,6 +457,13 @@ $shadows-big: multiple-box-shadow(100);
 
     &__wrap {
         position: relative;
+
+        @include media-breakpoint-down(md) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
     }
 
     &__ticker {
@@ -555,6 +571,12 @@ $shadows-big: multiple-box-shadow(100);
             top: -100px;
         }
 
+        @media (max-width: 400px) {
+            left: 10%;
+            max-width: 80%;
+            top: -140px;
+        }
+
         &--hidden {
             opacity: 0;
             transition: 300ms;
@@ -575,6 +597,12 @@ $shadows-big: multiple-box-shadow(100);
             margin: auto;
         }
 
+        @media (max-width: 400px) {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
         &--hidden {
             opacity: 0;
             transition: 300ms;
@@ -583,6 +611,10 @@ $shadows-big: multiple-box-shadow(100);
 
     &__text {
         height: 180px;
+
+        @media (max-width: 400px) {
+            margin-bottom: 60px;
+        }
 
         img {
             max-width: 100%;
@@ -598,10 +630,16 @@ $shadows-big: multiple-box-shadow(100);
 
         @include media-breakpoint-down(md) {
             font-size: rem(20px);
-            margin-bottom: rem(41vh);
+            margin-bottom: 41vh;
             margin-top: rem(50px);
             text-align: center;
+        }
 
+        @media (max-width: 400px) {
+            position: absolute;
+            top: 11vh;
+            margin: 0;
+            
         }
     }
 
@@ -612,6 +650,10 @@ $shadows-big: multiple-box-shadow(100);
 
         @include media-breakpoint-down(md) {
             margin-bottom: rem(30px);
+        }
+
+        @media (max-width: 400px) {
+            margin-top: auto;
         }
     }
 

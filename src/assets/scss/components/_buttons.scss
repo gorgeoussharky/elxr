@@ -17,6 +17,11 @@
         padding: rem(14px 20px);
     }
 
+    @media (max-width: 400px) {
+        font-size: rem(12px);
+        padding: rem(10px 20px);
+    }
+
     svg path {
         transition: 350ms;
     }

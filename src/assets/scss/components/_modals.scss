@@ -34,6 +34,12 @@
         }
     }
 
+    &#yandexLavkaModal {
+        .modal__heading, .modal__list{
+            width: calc(100% - 100px)
+        }
+    }
+
 
 
     &__dialog {

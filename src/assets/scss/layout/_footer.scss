@@ -1,6 +1,6 @@
 .footer {
     padding-top: rem(200px);
-    padding-bottom: rem(140px);
+    padding-bottom: rem(60px);
     color: #fff;
 
     @include media-breakpoint-down(lg) {
@@ -11,6 +11,11 @@
     @include media-breakpoint-down(md) {
         padding-top: rem(0);
         padding-bottom: rem(36px);
+       
+    }
+
+    @include media-breakpoint-down(sm) {
+        margin-bottom: rem(46px);
     }
 
     &--gradient {

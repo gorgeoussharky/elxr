@@ -7,8 +7,8 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const FontPreloadPlugin = require("webpack-font-preload-plugin");
 const environment = require('./environment');
-
 
 const webpackConfiguration = require('../webpack.config');
 
@@ -84,5 +84,8 @@ module.exports = merge(webpackConfiguration, {
         ],
       },
     }),
+    new FontPreloadPlugin({
+      extensions: ["woff", "woff2"],
+    })
   ],
 });
