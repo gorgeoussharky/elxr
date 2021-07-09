@@ -3,7 +3,7 @@
     &__nav {
         display: none;
 
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(xl) {
             @include unlist;
             display: flex;
             align-content: center;
@@ -57,7 +57,7 @@
         margin-bottom: rem(32px);
         text-align: center;
 
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(xl) {
             display: none;
         }
     }
@@ -68,16 +68,12 @@
         gap: rem(60px);
 
         @include media-breakpoint-down(xl) {
-            gap: rem(30px);
-        }
-
-        @include media-breakpoint-down(lg) {
             display: block;
         }
     }
 
     &__content {
-        @include media-breakpoint-down(lg) {
+        @include media-breakpoint-down(xl) {
             display: none;
         }
 

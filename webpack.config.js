@@ -114,7 +114,7 @@ module.exports = {
       },
       // Videos
       {
-        test: /\.(mp4|webm)$/i,
+        test: /\.(mp4|webm|mov)$/i,
         use: [{
           loader: 'url-loader',
           options: {

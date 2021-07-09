@@ -31,5 +31,5 @@
 		'string-no-newline': true,
 		'unit-no-unknown': true,
 	},
-	"ignoreFiles": ["./dist/assets/css/*.css"]
+	"ignoreFiles": ["./dist/assets/css/*.css", './backend/html/wp-content/themes/**/*', './backend/html/wp-includes/**/**/**/**/*']
 }

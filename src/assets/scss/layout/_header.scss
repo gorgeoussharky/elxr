@@ -8,6 +8,10 @@
     z-index: 100;
     padding: rem(22px 0);
 
+    @include media-breakpoint-down(md) {
+        width: calc(100% - 30px);
+    }
+
     &__wrap {
         display: flex;
         align-items: center;

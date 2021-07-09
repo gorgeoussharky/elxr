@@ -88,7 +88,7 @@ module.exports = merge(webpackConfiguration, {
   /* Additional plugins configuration */
   plugins: [
     new ESLintPlugin({
-      exclude: ['node_modules', 'local_modules'],
+      exclude: ['node_modules', 'local_modules', 'backend'],
       extensions: ['js', 'ts'],
     }),
     new StylelintPlugin(),

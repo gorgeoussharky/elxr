@@ -1,5 +1,7 @@
 .modal {
 
+
+
     &.show {
         .modal__dialog {
             opacity: 1;
@@ -33,15 +35,6 @@
             }
         }
     }
-
-    &#yandexLavkaModal {
-        .modal__heading, .modal__list{
-            width: calc(100% - 100px)
-        }
-    }
-
-
-
     &__dialog {
         @extend .modal-dialog;
         @extend .modal-dialog-centered;
@@ -88,56 +81,12 @@
         font-size: rem(36px);
         color: #fff;
         margin-bottom: rem(100px);
+        text-align: center;
 
         @include media-breakpoint-down(md) {
             margin-bottom: rem(60px);
             font-size: rem(25px);
-        }
-    }
-
-    &__list {
-        @include unlist;
-        width: 100%;
-        max-width: 390px;
-
-        &-item {
-            color: #fff;
-            display: flex;
-            align-items: center;
-            margin-bottom: rem(56px);
-            font-size: rem(18px);
-
-            @include media-breakpoint-down(md) {
-                margin-bottom: rem(42px);
-
-                span {
-                    display: inline-block;
-                    max-width: 180px;
-                }
-            }
-
-            img {
-                margin-left: rem(72px);
-                border-radius: 15px;
-                box-shadow: 0px 0px 45px 5px rgba(255, 255, 255, 0.7);
-
-                @include media-breakpoint-down(md) {
-                    margin-left: rem(36px);
-                }
-            }
-
-            svg {
-                max-width: 360px;
-                margin-left: rem(14px);
-
-                @include media-breakpoint-down(md) {
-                    max-width: 250px;
-                }
-            }
-
-            &:last-of-type {
-                margin-bottom: 0;
-            }
+            text-align: left;
         }
     }
 
@@ -149,6 +98,50 @@
         @include media-breakpoint-down(sm) {
             top: 15px;
             right: 5px;
+        }
+    }
+
+    &--shop {
+
+        .modal__heading, .modal__list{
+            width: calc(100% - 100px)
+        }
+
+        color: #fff;
+        ul {
+            @include unlist;
+            width: 100%;
+            max-width: 390px;
+    
+            li {
+                color: #fff;
+                display: flex;
+                align-items: center;
+                margin-bottom: rem(56px);
+                font-size: rem(18px);
+    
+                @include media-breakpoint-down(md) {
+                    margin-bottom: rem(42px);
+    
+                    span {
+                        display: inline-block;
+                        max-width: 180px;
+                    }
+                }
+    
+                img { 
+                    max-width: 360px;
+                    margin-left: rem(14px);
+                    @include media-breakpoint-down(md) {
+                        margin-left: rem(36px);
+                        max-width: 250px;
+                    }
+                }
+    
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
         }
     }
 }

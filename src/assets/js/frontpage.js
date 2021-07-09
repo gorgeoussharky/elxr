@@ -10,16 +10,26 @@ import './tabs';
 jQuery(($) => {
     var carousel;
     var fullpage;
+
     if (document.querySelector('#frontpage')) {
+        if (window.matchMedia('(min-width: 991px)').matches) {
+            document.querySelector('.footer').classList.add('fp-noscroll');
+        }
+
         fullpage = new Fullpage('#frontpage', {
             autoScrolling: true,
-            verticalCentered: true,
+            anchors: ['hero', 'use-cases', 'slogan-ticker', 'advantage-block1', 'advantage-block2', 'advantage-block3', 'shops', 'faq'],
             fitToSection: true,
+            verticalCentered: true,
+            touchSensitivity: 12,
             scrollOverflow: true,
             bigSectionsDestination: 'top',
             scrollOverflowOptions: {
                 scrollbars: false,
                 freeScroll: true,
+            },
+            afterRender: () => {
+                document.body.style.backgroundColor = '#e4569e';
             },
             onLeave: function (origin, destination) {
                 var originVideo = origin.item.querySelector('.advantage-block__video');
@@ -33,10 +43,6 @@ jQuery(($) => {
                 var ticker = destination.item.querySelector('.slogan-ticker__ticker');
                 if (ticker) {
                     Flickity.data(ticker).resize();
-                }
-
-                if (destination.isLast) {
-                    document.querySelector('.frontpage__foot').classList.add('frontpage__foot--gradient');
                 }
 
                 if (originVideo) {
@@ -61,16 +67,25 @@ jQuery(($) => {
                     }
                 }
 
-                if (destination.index === 3) {
+                if (destination.index < 4) {
+                    document.querySelector('.frontpage__advantage-block-circle').classList.remove('frontpage__advantage-block-circle--full-circle');
+                    document.querySelector('.frontpage__advantage-block-circle').classList.remove('frontpage__advantage-block-circle--half-circle');
+                } else if (destination.index === 4) {
                     document.querySelector('.frontpage__advantage-block-circle').classList.remove('frontpage__advantage-block-circle--full-circle');
                     document.querySelector('.frontpage__advantage-block-circle').classList.add('frontpage__advantage-block-circle--half-circle');
-                } else {
+                } else if (destination.index > 4) {
                     document.querySelector('.frontpage__advantage-block-circle').classList.remove('frontpage__advantage-block-circle--half-circle');
                     document.querySelector('.frontpage__advantage-block-circle').classList.add('frontpage__advantage-block-circle--full-circle');
                 }
 
                 if (color) document.documentElement.style.setProperty('--bg-color', color);
                 else document.documentElement.style.setProperty('--bg-color', '#03070E');
+
+                if (destination.index >= 6) {
+                    document.querySelector('.frontpage__gradient').classList.add('frontpage__gradient--animation');
+                } else {
+                    document.querySelector('.frontpage__gradient').classList.remove('frontpage__gradient--animation');
+                }
 
                 if (destination.index >= 3 && destination.index < 6) {
                     document.querySelector('.hero__stars-wrap').style.opacity = 0;
@@ -88,13 +103,17 @@ jQuery(($) => {
         });
     }
 
-    document.querySelector('[data-click="order"]').addEventListener('click', () => {
-        fullpage.moveTo('foot');
-    });
+    if (document.querySelector('[data-click="order"]')) {
+        document.querySelector('[data-click="order"]').addEventListener('click', () => {
+            fullpage.moveTo('shops');
+        });
+    }
 
-    document.querySelector('.hero__helper-arrow').addEventListener('click', () => {
-        fullpage.moveTo(2);
-    });
+    if (document.querySelector('.hero__helper-arrow')) {
+        document.querySelector('.hero__helper-arrow').addEventListener('click', () => {
+            fullpage.moveTo(2);
+        });
+    }
 
     document.querySelectorAll('.modal').forEach((el) => {
         el.addEventListener('show.bs.modal', (e) => {
@@ -115,6 +134,18 @@ jQuery(($) => {
                 fullpage.setKeyboardScrolling(true);
             }
         });
+    });
+
+    document.querySelectorAll('[data-lazy]').forEach((el) => {
+        var img;
+        var element = el;
+        if (window.matchMedia('(max-width: 600px').matches) {
+            img = element.getAttribute('data-lazy-sm');
+            element.parentElement.querySelector('.sm').srcset = img;
+        } else {
+            img = element.getAttribute('data-lazy-xl');
+            element.parentElement.querySelector('.xl').srcset = img;
+        }
     });
 
     document.querySelector('.header__toggler').addEventListener('click', function (e) {
@@ -144,11 +175,30 @@ jQuery(($) => {
         this.classList.toggle('header__toggler--active');
     });
 
+    document.querySelectorAll('.header-menu__link').forEach((el) => {
+        const menu = document.querySelector('.header__header-menu');
+        el.addEventListener('click', function () {
+            if (this.hash !== '') {
+                document.querySelector('.header__toggler').classList.remove('header__toggler--active');
+                menu.classList.remove('header__header-menu--active');
+                if (fullpage) {
+                    fullpage.setAllowScrolling(true);
+                    fullpage.setKeyboardScrolling(true);
+                }
+                document.documentElement.classList.remove('locked');
+                setTimeout(() => {
+                    menu.style.display = 'none';
+                }, 500);
+            }
+        });
+    });
+
     if (document.querySelector('.use-cases__carousel-wrap')) {
         carousel = new Flickity('.use-cases__carousel-wrap', {
             cellAlign: 'center',
             prevNextButtons: false,
             wrapAround: true,
+            autoPlay: 5000,
             adaptiveHeight: true,
             autoplay: true,
         });
@@ -168,6 +218,8 @@ jQuery(($) => {
         e.preventDefault();
         $(this).toggleClass('faq-item__toggler--expanded');
         $(this).parents('.faq__item').find('.faq-item__content').slideToggle();
-        fullpage.reBuild();
+        setTimeout(() => {
+            fullpage.reBuild();
+        }, 500);
     });
 });

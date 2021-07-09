@@ -30,6 +30,7 @@
         h2 {
             margin-bottom: rem(24px);
         }
+
         h3 {
             margin-bottom: rem(12px);
         }
@@ -43,14 +44,12 @@
             margin-bottom: rem(72px);
         }
 
-        ol li {
-            margin-bottom: rem(24px);
+        ol {
+            padding-left: 0;
+            margin-left: 0;
+            li {
+                margin-bottom: rem(24px);
+            }
         }
     }
 }
-
-
-
-
-
-

@@ -27,6 +27,10 @@ $shadows-big: multiple-box-shadow(100);
             transition: 500ms opacity, 1s transform;
             pointer-events: none;
 
+            img {
+                display: none;
+            }
+
             @media (max-width: 1500px) {
                 height: 650px;
                 width: 650px;
@@ -51,6 +55,10 @@ $shadows-big: multiple-box-shadow(100);
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                img {
+                    display: block;
+                }
             }
 
             &::after {
@@ -64,49 +72,84 @@ $shadows-big: multiple-box-shadow(100);
                 left: calc(50% - 32.5px);
 
                 @include media-breakpoint-down(md) {
-                    background-color: transparent;
-                    background-image: url("data:image/svg+xml,%3Csvg width='63' height='48' viewBox='0 0 63 48' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.1919 47.2378C1.43909 42.4449 -0.00593806 37.012 0.00173942 31.4839C0.0094169 25.9559 1.46953 20.527 4.23564 15.7418C7.00176 10.9566 10.9766 6.98326 15.7616 4.22032C20.5466 1.45738 25.9735 0.00194952 31.4979 0V5.08986C26.8646 5.08863 22.3125 6.30712 18.2985 8.62299C14.2846 10.9389 10.9502 14.2706 8.62999 18.2838C6.30979 22.2969 5.08548 26.8502 5.07997 31.4866C5.07447 36.1229 6.28796 40.6791 8.59863 44.6978L4.1919 47.2378Z' fill='white'/%3E%3Cpath d='M58.8476 47.1693L54.4458 44.639C56.7439 40.6183 57.9457 36.0638 57.9306 31.432C57.9156 26.8001 56.6842 22.2535 54.36 18.2479C52.0357 14.2422 48.7002 10.9182 44.6876 8.60883C40.6751 6.29948 36.1265 5.08596 31.4976 5.08986V0C37.0158 0.00110988 42.4369 1.45241 47.2185 4.20867C52 6.96493 55.9743 10.9295 58.7436 15.7056C61.513 20.4816 62.9801 25.9018 62.9984 31.4235C63.0166 36.9453 61.5853 42.375 58.8476 47.1693Z' fill='white'/%3E%3C/svg%3E%0A");
-                    height: 58px;
-                    width: 0%;
-                    overflow: hidden;
-                    background-repeat: no-repeat;
-                    background-position: 0 0;
-                    left: -5px;
-                    top: -5px;
-                    transition: 750ms;
+                    content: none;
                 }
             }
 
             &--half-circle {
-                @include media-breakpoint-down(md) {
-                    &::after {
-                        width: 50%;
-                        transition: 750ms;
-                    }
+                .frontpage__advantage-block-inner-circle {
+                        width: 120%;
                 }
             }
 
             &--full-circle {
-                @include media-breakpoint-down(md) {
-                    &::after {
-                        width: 125%;
-                        transition: 750ms;
-                    }
+                .frontpage__advantage-block-inner-circle {
+                        width: 120%;
+                        height: 120%;
+                }
+            }
+        }
+
+        &-inner-circle {
+            display: none;
+            @include media-breakpoint-down(md) {
+                display: block;
+                position: absolute;
+                width: 60%;
+                height: 65%;
+                left: -4px;
+                top: -4px;
+                overflow: hidden;
+                transition: 750ms;
+
+                &::after {
+                    content: '';
+                    height: 62px;
+                    width: 62px;
+                    left: 0;
+                    top: 0;
+                    position: absolute;
+                    border: 5px solid #fff;
+                    border-radius: 50%;
                 }
             }
         }
 
     }
 
-    &__foot {
+    &__faq {
+        min-height: 100vh;
+    }
+
+    &__gradient {
         background: linear-gradient(-45deg, #23d5ab, #23a6d5, #e4569e, #e4569e);
         background-size: 400% 400%;
         background-position: 0% 50%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 500ms;
 
 
-        &--gradient {
+        &--animation {
+            opacity: 1;
+            transition: opacity 500ms;
+            display: block;
             animation: gradient 15s ease infinite;
         }
+    }
+
+    &__shops-list {
+        @include media-breakpoint-down(md) {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
     }
 
 
@@ -126,13 +169,12 @@ $shadows-big: multiple-box-shadow(100);
     }
 
     &__stars {
-        background: transparent;
 
-        &::after {
-            content: "";
-            position: absolute;
-            top: 2000px;
+
+        &-wrap {
             background: transparent;
+            top: 0;
+            position: absolute;
         }
 
         &--layer {
@@ -181,7 +223,7 @@ $shadows-big: multiple-box-shadow(100);
     }
 
     &__content {
-        max-width: 400px;
+        max-width: 440px;
         margin-left: auto;
 
         @include media-breakpoint-down(md) {
@@ -208,6 +250,7 @@ $shadows-big: multiple-box-shadow(100);
         img {
             width: 100%;
             height: auto;
+            max-height: 400px;
         }
     }
 
@@ -233,7 +276,7 @@ $shadows-big: multiple-box-shadow(100);
 
     &__btn {
         @extend %btn-outline;
-        margin-left: auto;
+        margin: auto;
         display: flex;
         width: 100%;
         max-width: 200px;
@@ -269,6 +312,10 @@ $shadows-big: multiple-box-shadow(100);
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        @include media-breakpoint-down(sm) {
+            transform: translateY(-50px);
+        }
     }
 
     &__heading {
@@ -328,7 +375,7 @@ $shadows-big: multiple-box-shadow(100);
         .flickity-page-dots {
             bottom: -75px;
 
-            @include media-breakpoint-down(md) {
+            @include media-breakpoint-down(xl) {
                 bottom: -30px;
             }
 
@@ -360,6 +407,22 @@ $shadows-big: multiple-box-shadow(100);
         height: 50vh;
         width: 100vw;
         top: 30vh;
+
+        .flickity-viewport {
+            height: 100vh !important;
+        }
+
+        @include media-breakpoint-down(xl) {
+            top: 20vh;
+        }
+
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
+    }
+
+    &__cloud {
+        display: block;
     }
 
 
@@ -381,6 +444,9 @@ $shadows-big: multiple-box-shadow(100);
         display: flex;
         align-items: center;
         justify-content: center;
+        opacity: 0;
+        transition: 300ms;
+
 
         @include media-breakpoint-down(lg) {
             max-width: 475px;
@@ -388,6 +454,7 @@ $shadows-big: multiple-box-shadow(100);
 
         @include media-breakpoint-down(md) {
             max-width: 290px;
+            margin: rem(100px auto);
         }
     }
 
@@ -401,7 +468,12 @@ $shadows-big: multiple-box-shadow(100);
 
         img {
             max-width: 100%;
+            max-height: 410px;
             height: auto;
+
+            @include media-breakpoint-down(lg) {
+                max-height: 300px;
+            }   
         }
     }
 
@@ -451,6 +523,13 @@ $shadows-big: multiple-box-shadow(100);
             }
         }
     }
+
+    &.is-selected {
+        .case-item__wrap {
+            opacity: 1;
+            transition: 300ms;
+        }
+    }
 }
 
 .slogan-ticker {
@@ -472,18 +551,29 @@ $shadows-big: multiple-box-shadow(100);
         @include media-breakpoint-down(md) {
             margin-bottom: rem(18px);
         }
-
     }
 
     &__ticker-item {
         margin-left: rem(24px);
+        width: calc(100% / 2.3);
+
+        @include media-breakpoint-down(xl) {
+            width: calc(100% / 2.1);
+        }
+
+        @include media-breakpoint-down(md) {
+            width: calc(100% / 1.5);
+        }
+
+        @include media-breakpoint-down(sm) {
+            width: calc(100% / 0.6);
+        }
 
         img {
-            height: 70px;
-
-            @include media-breakpoint-down(md) {
-                height: 52px;
-            }
+            width: 100%;
+            min-height: 50px;
+            height: auto;
+            object-fit: contain;
         }
     }
 
@@ -551,30 +641,43 @@ $shadows-big: multiple-box-shadow(100);
     &__video {
         height: 740px;
         position: absolute;
-        left: -200px;
+        left: 5vw;
         top: 0;
         bottom: 0;
         margin: auto;
         transition: 700ms;
 
+        &::slotted::-webkit-media-controls-container, &::shadow::-webkit-media-controls-container {
+            display:none !important;
+            visibility: hidden!important;
+            opacity: 0 !important;
+           -webkit-appearance: none !important;
+          }
+      
+
         @include media-breakpoint-down(xl) {
-            left: -400px;
+            left: -8vw;
         }
 
         @include media-breakpoint-down(lg) {
-            left: -600px;
+            left: -330px;
         }
 
         @include media-breakpoint-down(md) {
-            left: -5%;
-            max-width: 110%;
+            left: 0;
+            right: 0;
+            max-width: 42vw;
             top: -100px;
         }
 
-        @media (max-width: 400px) {
-            left: 10%;
-            max-width: 80%;
+        /*        @media (max-width: 450px) {
+            left: 0%;
+            max-width: 100%;
             top: -140px;
+        } */
+
+        @media (max-height: 700px) and (max-width: 400px) {
+            display: none;
         }
 
         &--hidden {
@@ -597,7 +700,7 @@ $shadows-big: multiple-box-shadow(100);
             margin: auto;
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 450px) {
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -612,8 +715,8 @@ $shadows-big: multiple-box-shadow(100);
     &__text {
         height: 180px;
 
-        @media (max-width: 400px) {
-            margin-bottom: 60px;
+        @media (max-width: 450px) {
+            margin-bottom: 100px;
         }
 
         img {
@@ -635,11 +738,11 @@ $shadows-big: multiple-box-shadow(100);
             text-align: center;
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 450px) {
             position: absolute;
             top: 11vh;
             margin: 0;
-            
+
         }
     }
 
@@ -652,7 +755,7 @@ $shadows-big: multiple-box-shadow(100);
             margin-bottom: rem(30px);
         }
 
-        @media (max-width: 400px) {
+        @media (max-width: 450px) {
             margin-top: auto;
         }
     }
@@ -700,10 +803,13 @@ $shadows-big: multiple-box-shadow(100);
     }
 
     &__heading {
-        font-size: rem(22px);
-        color: #fff;
-        font-weight: 700;
+
+        font-size: rem(42px);
+        color: #FFFFFF;
+        text-transform: uppercase;
         margin-bottom: rem(80px);
+        font-weight: 700;
+        max-width: 400px;
 
         @include media-breakpoint-down(md) {
             display: none;
@@ -727,17 +833,20 @@ $shadows-big: multiple-box-shadow(100);
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        margin: rem(0 -26px);
 
         @include media-breakpoint-down(md) {
             justify-content: center;
+            margin: 0;
         }
     }
 
     &__item {
-        margin-right: rem(26px);
+        margin: rem(0 26px);
 
-        &:last-of-type {
-            margin-right: 0;
+        @include media-breakpoint-down(md) {
+            flex-basis: 130px;
+            margin: 0;
         }
     }
 
@@ -774,6 +883,17 @@ $shadows-big: multiple-box-shadow(100);
 
 .faq {
 
+    &__wrap {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+
+        @include media-breakpoint-down(md) {
+            padding-bottom: rem(100px);
+        }
+    }
+
     &__heading {
         font-size: rem(44px);
         color: #fff;
@@ -808,6 +928,10 @@ $shadows-big: multiple-box-shadow(100);
         display: flex;
         width: 100%;
         position: relative;
+
+        @include media-breakpoint-down(md) {
+            padding: rem(10px 8px);
+        }
 
         &::before {
             content: '';
@@ -847,5 +971,10 @@ $shadows-big: multiple-box-shadow(100);
         color: #fff;
         padding: rem(22px 8px);
         display: none;
+        margin-bottom: 0;
+
+        @include media-breakpoint-down(md) {
+            padding: rem(10px 8px);
+        }
     }
 }

@@ -7,15 +7,16 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const FontPreloadPlugin = require("webpack-font-preload-plugin");
 const webpackConfiguration = require('../webpack.config');
 const environment = require('./environment');
 
-const themeName = '';
+const themeName = 'elxr';
 
 module.exports = merge(webpackConfiguration, {
     mode: 'production',
     output: {
-        publicPath: '/wp-content/themes/' + themeName + '/',
+        publicPath: '/elxrwp/wp-content/themes/' + themeName + '/',
     },
     /* Manage source maps generation process. Refer to https://webpack.js.org/configuration/devtool/#production */
     devtool: false,
@@ -68,9 +69,9 @@ module.exports = merge(webpackConfiguration, {
                 // Lossless optimization with custom option
                 // Feel free to experiment with options for better result for you
                 plugins: [
-                    ['gifsicle', {
+/*                     ['gifsicle', {
                         interlaced: true
-                    }],
+                    }], */
                     ['jpegtran', {
                         progressive: true
                     }],
@@ -92,5 +93,8 @@ module.exports = merge(webpackConfiguration, {
         new MiniCssExtractPlugin({
             filename: 'assets/css/[name].css',
         }),
+        new FontPreloadPlugin({
+            extensions: ["woff", "woff2"],
+        })
     ],
 });

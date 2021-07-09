@@ -4,6 +4,11 @@
 
     <div class="frontpage__advantage-block-circle">
       <img alt="">
+
+      <div class="frontpage__advantage-block-inner-circle"></div>
+    </div>
+    <div class="frontpage__gradient">
+
     </div>
 
     <div class="frontpage__wrap" id="frontpage">
@@ -18,7 +23,15 @@
             <div class="row hero__row">
               <div class="col-md-7">
                 <div class="hero__img">
-                  <img loading="lazy" src="<%=require('@assets/img/product.gif')%>" alt="">
+
+                  <picture>
+                    <source class="sm" srcset="<%=require('@assets/img/product_sm.png')%>" media="(max-width: 600px)">
+                    <source class="xl" srcset="<%=require('@assets/img/product_xl.png')%>">
+                    <img src="<%=require('@assets/img/product_sm.png')%>" data-lazy
+                      data-lazy-sm="<%=require('@assets/img/product_sm_2.gif')%>"
+                      data-lazy-xl="<%=require('@assets/img/product_xl.gif')%>" alt="">
+                  </picture>
+
                 </div>
               </div>
               <div class="col-md-5">
@@ -41,6 +54,30 @@
       </section>
       <section class="frontpage__use-cases use-cases section fp-noscroll">
         <div class="use-cases__clouds-wrap">
+          <div class="use-cases__clouds">
+            <picture class='use-cases__cloud'>
+              <source srcset='<%=require(`@assets/img/bg/clouds.png`)%>.webp' type='image/webp'>
+              <img src='<%=require(`@assets/img/bg/clouds.png`)%>' alt=''>
+            </picture>
+          </div>
+          <div class="use-cases__clouds">
+            <picture class='use-cases__cloud'>
+              <source srcset='<%=require(`@assets/img/bg/clouds.png`)%>.webp' type='image/webp'>
+              <img src='<%=require(`@assets/img/bg/clouds.png`)%>' alt=''>
+            </picture>
+          </div>
+          <div class="use-cases__clouds">
+            <picture class='use-cases__cloud'>
+              <source srcset='<%=require(`@assets/img/bg/clouds.png`)%>.webp' type='image/webp'>
+              <img src='<%=require(`@assets/img/bg/clouds.png`)%>' alt=''>
+            </picture>
+          </div>
+          <div class="use-cases__clouds">
+            <picture class='use-cases__cloud'>
+              <source srcset='<%=require(`@assets/img/bg/clouds.png`)%>.webp' type='image/webp'>
+              <img src='<%=require(`@assets/img/bg/clouds.png`)%>' alt=''>
+            </picture>
+          </div>
           <div class="use-cases__clouds">
             <picture class='use-cases__cloud'>
               <source srcset='<%=require(`@assets/img/bg/clouds.png`)%>.webp' type='image/webp'>
@@ -159,12 +196,12 @@
           </div>
         </div>
       </section>
-      <section class="frontpage__advantage-block advantage-block advantage-block--1 section fp-noscroll" data-color="#9f00ff"
-        data-rotation="0" data-icon="<%=require(`@assets/img/icons/ligtning.svg`)%>">
+      <section class="frontpage__advantage-block advantage-block advantage-block--1 section fp-noscroll"
+        data-color="#9f00ff" data-rotation="0" data-icon="<%=require(`@assets/img/icons/ligtning.svg`)%>">
         <div class="container">
           <div class="advantage-block__wrap">
-            <video class="advantage-block__video advantage-block__video--hidden" loop playsinline  autoplay>
-              <source src="<%=require(`@assets/video/advantage_1_xl.mp4`)%>" type="video/mp4">
+            <video class="advantage-block__video advantage-block__video--hidden" loop playsinline autoplay>
+              <source src="<%=require(`@assets/video/advantage_1_xl.webm`)%>" type="video/webm">
             </video>
             <div class="advantage-block__info advantage-block__info--hidden">
               <h2 class="advantage-block__heading">
@@ -199,11 +236,12 @@
           </div>
         </div>
       </section>
-      <section class="frontpage__advantage-block advantage-block advantage-block--2 section fp-noscroll" data-color="#378fff"
-        data-rotation="90" data-icon="<%=require(`@assets/img/icons/cancel.svg`)%>">
+      <section class="frontpage__advantage-block advantage-block advantage-block--2 section fp-noscroll"
+        data-color="#378fff" data-rotation="90" data-icon="<%=require(`@assets/img/icons/cancel.svg`)%>">
         <div class="container">
           <div class="advantage-block__wrap">
             <video class="advantage-block__video advantage-block__video--hidden" loop playsinline autoplay>
+              <source src="<%=require(`@assets/video/advantage_2_xl.webm`)%>" type="video/webm">
               <source src="<%=require(`@assets/video/advantage_2_xl.mp4`)%>" type="video/mp4">
             </video>
             <div class="advantage-block__info">
@@ -239,12 +277,12 @@
           </div>
         </div>
       </section>
-      <section class="frontpage__advantage-block advantage-block advantage-block--3 section fp-noscroll" data-color="#e3549f"
-        data-rotation="125" data-icon="<%=require(`@assets/img/icons/smile.svg`)%>">
+      <section class="frontpage__advantage-block advantage-block advantage-block--3 section fp-noscroll"
+        data-color="#e3549f" data-rotation="125" data-icon="<%=require(`@assets/img/icons/smile.svg`)%>">
         <div class="container">
           <div class="advantage-block__wrap">
             <video class="advantage-block__video advantage-block__video--hidden" loop playsinline autoplay>
-              <source src="<%=require(`@assets/video/advantage_3_xl.mp4`)%>" type="video/mp4">
+              <source src="<%=require(`@assets/video/advantage_3_xl.webm`)%>" type="video/webm">
             </video>
             <div class="advantage-block__info">
               <h2 class="advantage-block__heading">
@@ -280,92 +318,119 @@
 
         </div>
       </section>
-      <div class="frontpage__foot section fp-auto-height" data-anchor="foot" id="frontpageFoot" data-color="#e4569e">
-        <section class="frontpage__shops-list shops-list">
-          <div class="shops-list__wrap">
-            <div class="container">
-              <div class="row shops-list__row">
-                <div class="col-md-6">
-                  <div class="shops-list__heading">
-                    Go hard. Recover smart.
-                  </div>
-                  <div class="shops-list__subheading">
-                    Где заказать:
-                  </div>
-                  <ul class="shops-list__list">
-                    <li class="shops-list__item">
-                      <a href="" class="shops-list__link">
-                        <picture class="shops-list__link-img">
-                          <source srcset='<%=require(`@assets/img/icons/ozon.jpg`)%>.webp' type='image/webp'>
-                          <img loading="lazy" src='<%=require(`@assets/img/icons/ozon.jpg`)%>' alt='Ozon'>
-                        </picture>
-                        Ozon
-                      </a>
-                    </li>
-                    <li class="shops-list__item">
-                      <a href="" class="shops-list__link" data-bs-toggle="modal" data-bs-target="#yandexLavkaModal"
-                        data-tab="#third">
-                        <picture class="shops-list__link-img">
-                          <source srcset='<%=require(`@assets/img/icons/yandex.jpg`)%>.webp' type='image/webp'>
-                          <img loading="lazy" src='<%=require(`@assets/img/icons/yandex.jpg`)%>' alt='Яндекс.Лавка'>
-                        </picture>
-                        Яндекс.Лавка
-                      </a>
-                    </li>
-                  </ul>
+      <section class="frontpage__shops-list section fp-noscroll shops-list" data-color="transparent">
+        <div class="shops-list__wrap">
+          <div class="container">
+            <div class="row shops-list__row">
+              <div class="col-md-6">
+                <div class="shops-list__heading">
+                  Go hard. Recover smart.
                 </div>
-                <div class="col-md-6">
-                  <div class="shops-list__img">
-                    <img loading="lazy" src="<%=require('@assets/img/product.gif')%>" alt="">
-                  </div>
+                <div class="shops-list__subheading">
+                  Где заказать:
+                </div>
+                <ul class="shops-list__list">
+                  <li class="shops-list__item">
+                    <a href="" class="shops-list__link">
+                      <picture class="shops-list__link-img">
+                        <source srcset='<%=require(`@assets/img/icons/ozon.jpg`)%>.webp' type='image/webp'>
+                        <img loading="lazy" src='<%=require(`@assets/img/icons/ozon.jpg`)%>' alt='Ozon'>
+                      </picture>
+                      Ozon
+                    </a>
+                  </li>
+                  <li class="shops-list__item">
+                    <a href="" class="shops-list__link" data-bs-toggle="modal" data-bs-target="#yandexLavkaModal"
+                      data-tab="#third">
+                      <picture class="shops-list__link-img">
+                        <source srcset='<%=require(`@assets/img/icons/yandex.jpg`)%>.webp' type='image/webp'>
+                        <img loading="lazy" src='<%=require(`@assets/img/icons/yandex.jpg`)%>' alt='Яндекс.Лавка'>
+                      </picture>
+                      Яндекс.Лавка
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <div class="shops-list__img">
+                  <picture>
+                    <source srcset='<%=require(`@assets/img/product_xl.png`)%>.webp' type='image/webp'>
+                    <source srcset='<%=require(`@assets/img/product_xl.png`)%>.webp' media="(max-width: 600px)"
+                      type='image/webp'>
+                    <source srcset="<%=require('@assets/img/product_sm.png')%>" media="(max-width: 600px)">
+                    <img src="<%=require('@assets/img/product_xl.png')%>" alt="">
+                  </picture>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-        <section class="frontpage__faq faq">
-          <div class="faq__wrap">
-            <div class="container">
-              <h2 class="faq__heading">F.A.Q.</h2>
-              <ul class="faq__list">
-                <li class="faq__item">
-                  <h3 class="faq__item-title">
-                    <button class="faq-item__toggler">Что такое ELXR?</button>
-                  </h3>
-                  <div class="faq-item__content">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima perferendis est voluptate
-                    eos,
-                    culpa ipsum non animi velit ad distinctio quae at temporibus? Atque nostrum neque suscipit illo
-                    eligendi.
-                  </div>
-                </li>
-                <li class="faq__item">
-                  <h3 class="faq__item-title">
-                    <button class="faq-item__toggler">А это точно работает?</button>
-                  </h3>
-                  <div class="faq-item__content">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima perferendis est voluptate
-                    eos,
-                    culpa ipsum non animi velit ad distinctio quae at temporibus? Atque nostrum neque suscipit illo
-                    eligendi.
-                  </div>
-                </li>
-                <li class="faq__item">
-                  <h3 class="faq__item-title">
-                    <button class="faq-item__toggler">Способ применения</button>
-                  </h3>
-                  <div class="faq-item__content">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima perferendis est voluptate
-                    eos,
-                    culpa ipsum non animi velit ad distinctio quae at temporibus? Atque nostrum neque suscipit illo
-                    eligendi.
-                  </div>
-                </li>
-              </ul>
-            </div>
+        </div>
+      </section>
+      <section class="frontpage__faq faq section fp-auto-height" data-color="transparent">
+        <div class="faq__wrap">
+          <div class="container">
+            <h2 class="faq__heading">F.A.Q.</h2>
+            <ul class="faq__list">
+              <li class="faq__item">
+                <h3 class="faq__item-title">
+                  <button class="faq-item__toggler">Что такое ELXR?</button>
+                </h3>
+                <div class="faq-item__content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima perferendis est voluptate
+                  eos,
+                  culpa ipsum non animi velit ad distinctio quae at temporibus? Atque nostrum neque suscipit illo
+                  eligendi.
+                </div>
+              </li>
+              <li class="faq__item">
+                <h3 class="faq__item-title">
+                  <button class="faq-item__toggler">А это точно работает?</button>
+                </h3>
+                <div class="faq-item__content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima perferendis est voluptate
+                  eos,
+                  culpa ipsum non animi velit ad distinctio quae at temporibus? Atque nostrum neque suscipit illo
+                  eligendi.
+                </div>
+              </li>
+              <li class="faq__item">
+                <h3 class="faq__item-title">
+                  <button class="faq-item__toggler">А это точно работает?</button>
+                </h3>
+                <div class="faq-item__content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima perferendis est voluptate
+                  eos,
+                  culpa ipsum non animi velit ad distinctio quae at temporibus? Atque nostrum neque suscipit illo
+                  eligendi.
+                </div>
+              </li>
+              <li class="faq__item">
+                <h3 class="faq__item-title">
+                  <button class="faq-item__toggler">А это точно работает?</button>
+                </h3>
+                <div class="faq-item__content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima perferendis est voluptate
+                  eos,
+                  culpa ipsum non animi velit ad distinctio quae at temporibus? Atque nostrum neque suscipit illo
+                  eligendi.
+                </div>
+              </li>
+              <li class="faq__item">
+                <h3 class="faq__item-title">
+                  <button class="faq-item__toggler">Способ применения</button>
+                </h3>
+                <div class="faq-item__content">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime minima perferendis est voluptate
+                  eos,
+                  culpa ipsum non animi velit ad distinctio quae at temporibus? Atque nostrum neque suscipit illo
+                  eligendi.
+                </div>
+              </li>
+            </ul>
           </div>
-        </section>
+        </div>
+      </section>
 
 
 
-        <%= require('@parts/footer.ejs')({title: 'Frontpage' }) %>
+      <%= require('@parts/footer.ejs')({title: 'Frontpage' }) %>

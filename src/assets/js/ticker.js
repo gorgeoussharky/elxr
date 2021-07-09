@@ -1,101 +1,99 @@
 import Flickity from 'flickity';
 
 const speed = 1;
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        document.querySelectorAll('.slogan-ticker__ticker:not(.slogan-ticker__ticker--reverse)').forEach((el) => {
-            // Initialize the slider
-            var mainTicker = new Flickity(el, {
-                accessibility: true,
-                resize: true,
-                wrapAround: true,
-                prevNextButtons: false,
-                pageDots: false,
-                percentPosition: true,
-                setGallerySize: true,
-                draggable: false,
-            });
-
-            // Set initial position to be 0
-            mainTicker.x = 0;
-
-            // Start the marquee animation
-            play();
-
-            // Main function that 'plays' the marquee.
-            function play() {
-                // Set the decrement of position x
-                mainTicker.x -= speed;
-
-                // Settle position into the slider
-                mainTicker.settle(mainTicker.x);
-
-                // Set the requestId to the local variable
-                window.requestAnimationFrame(play);
-            }
+jQuery(() => {
+    document.querySelectorAll('.slogan-ticker__ticker:not(.slogan-ticker__ticker--reverse)').forEach((el) => {
+        // Initialize the slider
+        var mainTicker = new Flickity(el, {
+            accessibility: true,
+            resize: true,
+            wrapAround: true,
+            prevNextButtons: false,
+            pageDots: false,
+            percentPosition: true,
+            setGallerySize: true,
+            draggable: false,
         });
 
-        document.querySelectorAll('.slogan-ticker__ticker--reverse').forEach((el) => {
-            var mainTicker = new Flickity(el, {
-                accessibility: true,
-                resize: true,
-                wrapAround: true,
-                prevNextButtons: false,
-                pageDots: false,
-                percentPosition: true,
-                setGallerySize: true,
-                rightToLeft: true,
-                draggable: false,
-            });
+        // Set initial position to be 0
+        mainTicker.x = 0;
 
-            mainTicker.x = 0;
+        // Start the marquee animation
+        play();
 
-            // Start the marquee animation
-            play();
+        // Main function that 'plays' the marquee.
+        function play() {
+            // Set the decrement of position x
+            mainTicker.x -= speed;
 
-            // Main function that 'plays' the marquee.
-            function play() {
-                // Set the decrement of position x
-                mainTicker.x -= speed;
+            // Settle position into the slider
+            mainTicker.settle(mainTicker.x);
 
-                // Settle position into the slider
-                mainTicker.settle(mainTicker.x);
+            // Set the requestId to the local variable
+            window.requestAnimationFrame(play);
+        }
+    });
 
-                // Set the requestId to the local variable
-                window.requestAnimationFrame(play);
-            }
+    document.querySelectorAll('.slogan-ticker__ticker--reverse').forEach((el) => {
+        var mainTicker = new Flickity(el, {
+            accessibility: true,
+            resize: true,
+            wrapAround: true,
+            prevNextButtons: false,
+            pageDots: false,
+            percentPosition: true,
+            setGallerySize: true,
+            rightToLeft: true,
+            draggable: false,
         });
 
-        document.querySelectorAll('.use-cases__clouds-wrap').forEach((el) => {
-            // Initialize the slider
-            var mainTicker = new Flickity(el, {
-                accessibility: true,
-                resize: true,
-                wrapAround: true,
-                prevNextButtons: false,
-                pageDots: false,
-                percentPosition: true,
-                setGallerySize: true,
-                draggable: false,
-            });
+        mainTicker.x = 0;
 
-            // Set initial position to be 0
-            mainTicker.x = 0;
+        // Start the marquee animation
+        play();
 
-            // Start the marquee animation
-            play();
+        // Main function that 'plays' the marquee.
+        function play() {
+            // Set the decrement of position x
+            mainTicker.x -= speed;
 
-            // Main function that 'plays' the marquee.
-            function play() {
-                // Set the decrement of position x
-                mainTicker.x -= speed;
+            // Settle position into the slider
+            mainTicker.settle(mainTicker.x);
 
-                // Settle position into the slider
-                mainTicker.settle(mainTicker.x);
+            // Set the requestId to the local variable
+            window.requestAnimationFrame(play);
+        }
+    });
 
-                // Set the requestId to the local variable
-                window.requestAnimationFrame(play);
-            }
+    document.querySelectorAll('.use-cases__clouds-wrap').forEach((el) => {
+        // Initialize the slider
+        var mainTicker = new Flickity(el, {
+            accessibility: true,
+            resize: true,
+            wrapAround: true,
+            prevNextButtons: false,
+            pageDots: false,
+            percentPosition: true,
+            setGallerySize: true,
+            draggable: false,
         });
-    }, 500);
+
+        // Set initial position to be 0
+        mainTicker.x = 0;
+
+        // Start the marquee animation
+        play();
+
+        // Main function that 'plays' the marquee.
+        function play() {
+            // Set the decrement of position x
+            mainTicker.x -= 0.25;
+
+            // Settle position into the slider
+            mainTicker.settle(mainTicker.x);
+
+            // Set the requestId to the local variable
+            window.requestAnimationFrame(play);
+        }
+    });
 });

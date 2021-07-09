@@ -1,6 +1,6 @@
 .footer {
-    padding-top: rem(200px);
-    padding-bottom: rem(60px);
+    padding-top: rem(140px);
+    padding-bottom: rem(20px);
     color: #fff;
 
     @include media-breakpoint-down(lg) {
@@ -24,7 +24,9 @@
         background-position: 0% 50%;
         animation: gradient 15s ease infinite;
         padding-top: 100vh;
+        padding-bottom: rem(40px);
         position: relative;
+        overflow: hidden;
 
         @include media-breakpoint-down(md) {
             padding-top: 50vh;
