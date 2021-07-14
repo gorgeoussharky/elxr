@@ -1,52 +1,51 @@
 h1 {
-    font-weight: 400;
-    font-size: rem(36px);
+  font-weight: 400;
+  font-size: rem(36px);
 
-    @include media-breakpoint-down(md) {
-        font-size: rem(25px);
-    }
+  @include media-breakpoint-down(md) {
+    font-size: rem(25px);
+  }
 }
 
 h2 {
-    font-size: rem(20px);
+  font-size: rem(20px);
 }
 
 h3 {
-    font-size: rem(18px);
+  font-size: rem(18px);
 }
 
 p {
-    font-size: rem(14px);
-    margin-bottom: rem(16px);
+  font-size: rem(14px);
+  margin-bottom: rem(16px);
 }
 
 ul {
-    font-size: rem(14px)
+  font-size: rem(14px);
 }
 
 ol {
-    @include unlist;
-    font-size: rem(14px);
+  @include unlist;
+  font-size: rem(14px);
 
-    li {
-        counter-increment: num;
-        display: flex;
-        align-items: baseline;
-  
+  li {
+    counter-increment: num;
+    display: flex;
+    align-items: baseline;
 
-        &::before {
-            content: counter(num);
-            min-width: 16px;
-            height: 16px;
-            border: 1px solid $dark;
-            font-size: rem(10px);
-            color: $dark;
-            margin-right: rem(16px);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
+    &::before {
+      content: counter(num);
+      min-width: 16px;
+      height: 16px;
+      border: 1px solid $dark;
+      font-size: rem(10px);
+      color: $dark;
+      margin-right: rem(16px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
     }
+  }
 }

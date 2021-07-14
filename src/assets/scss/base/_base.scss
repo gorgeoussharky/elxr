@@ -1,74 +1,95 @@
 html {
-    overflow-x: hidden;
+  overflow-x: hidden;
 
-    &.locked {
-        overflow: hidden;
-    }
+  &.locked {
+    overflow: hidden;
+  }
 
-    @include media-breakpoint-down(xl) {
-        font-size: 15px;
-    }
+  @include media-breakpoint-down(xl) {
+    font-size: 15px;
+  }
 
-    @include media-breakpoint-down(lg) {
-        font-size: 14px;
-    }
+  @include media-breakpoint-down(lg) {
+    font-size: 14px;
+  }
 
-    @include media-breakpoint-down(md) {
-        font-size: 13px;
-    }
+  @include media-breakpoint-down(md) {
+    font-size: 13px;
+  }
 
-    @include media-breakpoint-down(sm) {
-        font-size: 16px;
-    }
+  @include media-breakpoint-down(sm) {
+    font-size: 16px;
+  }
 }
 
 :root {
-    --bg-color: #03070E;
+  --bg-color: #03070e;
 }
 
 body {
-    overflow-x: hidden;
-    font-family: 'Helvetica', sans-serif;
-    background: #fff;
+  overflow-x: hidden;
+  font-family: "Helvetica", sans-serif;
+  background: #fff;
 }
 
 .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 .gradient-balls {
-    
-    &__ball {
-        width: 640px;
-        height: 640px;
-        position: absolute;
+  &__ball {
+    width: 640px;
+    height: 640px;
+    position: absolute;
 
-        &--1 {
-            animation: ball1 30s linear infinite;
-            left: 20%;
-            top: 0;
-            background: radial-gradient(50% 50% at 50% 50%, rgba(203, 19, 106, 0.7) 0%, rgba(204, 32, 88, 0.4) 41%, rgba(206, 49, 63, 0) 100%);
-        }
-
-        &--2 {
-            animation: ball2 30s linear infinite;
-            right: 0;
-            top: 20%;
-            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 135, 212, 0.8) 0%, rgba(22, 137, 194, 0.52) 32%, rgba(53, 141, 170, 0.15) 79%, rgba(65, 142, 161, 0) 100%);
-        }
-
-        &--3 {
-            animation: ball3 30s linear infinite;
-            bottom: -10%;
-            left: 40%;
-            background: radial-gradient(50% 50% at 50% 50%, rgba(140, 16, 255, 0.8) 0%, rgba(139, 37, 226, 0.6) 23%, rgba(136, 85, 162, 0.17) 76%, rgba(135, 104, 137, 0) 100%);
-        }
+    &--1 {
+      animation: ball1 30s linear infinite;
+      left: 20%;
+      top: 0;
+      background: radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(203, 19, 106, 0.7) 0%,
+        rgba(204, 32, 88, 0.4) 41%,
+        rgba(206, 49, 63, 0) 100%
+      );
     }
+
+    &--2 {
+      animation: ball2 30s linear infinite;
+      right: 0;
+      top: 20%;
+      background: radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(0, 135, 212, 0.8) 0%,
+        rgba(22, 137, 194, 0.52) 32%,
+        rgba(53, 141, 170, 0.15) 79%,
+        rgba(65, 142, 161, 0) 100%
+      );
+    }
+
+    &--3 {
+      animation: ball3 30s linear infinite;
+      bottom: -10%;
+      left: 40%;
+      background: radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(140, 16, 255, 0.8) 0%,
+        rgba(139, 37, 226, 0.6) 23%,
+        rgba(136, 85, 162, 0.17) 76%,
+        rgba(135, 104, 137, 0) 100%
+      );
+    }
+  }
+}
+
+img[data-suspended] {
+  opacity: 0;
+  transition: 500ms;
 }

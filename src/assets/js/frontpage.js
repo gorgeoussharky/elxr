@@ -16,12 +16,27 @@ jQuery(($) => {
             document.querySelector('.footer').classList.add('fp-noscroll');
         }
 
-        fullpage = new Fullpage('#frontpage', {
+        document.querySelectorAll('.frontpage video').forEach((el) => {
+            var parent = el.parentElement;
+            var video = el;
+            var replacement = parent.querySelector('img[data-suspended]');
+            video.addEventListener('suspend', () => {
+                video.style.style.opacity = '0';
+                replacement.style.opacity = '1';
+            });
+
+            video.addEventListener('play', () => {
+                replacement.style.opacity = '0';
+                video.style.style.opacity = '1';
+            });
+        });
+
+        const options = {
             autoScrolling: true,
             anchors: ['hero', 'use-cases', 'slogan-ticker', 'advantage-block1', 'advantage-block2', 'advantage-block3', 'shops', 'faq'],
             fitToSection: true,
             verticalCentered: true,
-            touchSensitivity: 12,
+            touchSensitivity: 25,
             scrollOverflow: true,
             bigSectionsDestination: 'top',
             scrollOverflowOptions: {
@@ -32,8 +47,10 @@ jQuery(($) => {
                 document.body.style.backgroundColor = '#e4569e';
             },
             onLeave: function (origin, destination) {
+                var originVideoWrap = origin.item.querySelector('.advantage-block__video-wrap');
                 var originVideo = origin.item.querySelector('.advantage-block__video');
                 var originInfo = origin.item.querySelector('.advantage-block__info');
+                var destVideoWrap = destination.item.querySelector('.advantage-block__video-wrap');
                 var destVideo = destination.item.querySelector('.advantage-block__video');
                 var destInfo = destination.item.querySelector('.advantage-block__info');
                 var color = destination.item.getAttribute('data-color');
@@ -45,16 +62,16 @@ jQuery(($) => {
                     Flickity.data(ticker).resize();
                 }
 
-                if (originVideo) {
-                    originVideo.classList.add('advantage-block__video--hidden');
+                if (originVideoWrap) {
+                    originVideoWrap.classList.add('advantage-block__video-wrap--hidden');
                     originInfo.classList.add('advantage-block__info--hidden');
-                    originVideo.pause();
+                    if (originVideo) originVideo.pause();
                 }
-                if (destVideo) {
+                if (destVideoWrap) {
                     setTimeout(() => {
-                        destVideo.classList.remove('advantage-block__video--hidden');
+                        destVideoWrap.classList.remove('advantage-block__video-wrap--hidden');
                         destInfo.classList.remove('advantage-block__info--hidden');
-                        destVideo.play();
+                        if (destVideo) destVideo.play();
                     }, 400);
                 }
 
@@ -100,7 +117,13 @@ jQuery(($) => {
                     document.querySelector('.frontpage__advantage-block-circle').style.opacity = 0;
                 }
             },
-        });
+        };
+
+        if (window.matchMedia('(max-width: 1024px)').matches) {
+            options.touchSensitivity = 12;
+        }
+
+        fullpage = new Fullpage('#frontpage', options);
     }
 
     if (document.querySelector('[data-click="order"]')) {
@@ -136,15 +159,15 @@ jQuery(($) => {
         });
     });
 
-    document.querySelectorAll('[data-lazy]').forEach((el) => {
-        var img;
+    document.querySelectorAll('[data-lazy-video]').forEach((el) => {
+        var src;
         var element = el;
         if (window.matchMedia('(max-width: 600px').matches) {
-            img = element.getAttribute('data-lazy-sm');
-            element.parentElement.querySelector('.sm').srcset = img;
+            src = element.getAttribute('data-sm');
+            element.src = src;
         } else {
-            img = element.getAttribute('data-lazy-xl');
-            element.parentElement.querySelector('.xl').srcset = img;
+            src = element.getAttribute('data-xl');
+            element.src = src;
         }
     });
 
@@ -201,6 +224,15 @@ jQuery(($) => {
             autoPlay: 5000,
             adaptiveHeight: true,
             autoplay: true,
+        });
+
+        document.querySelectorAll('.use-cases__carousel-control').forEach((el) => {
+            el.addEventListener('mouseover', () => {
+                carousel.pausePlayer();
+            });
+            el.addEventListener('mouseout', () => {
+                carousel.unpausePlayer();
+            });
         });
 
         document.querySelector('.use-cases__carousel-control--prev').addEventListener('click', (e) => {

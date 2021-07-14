@@ -1,11 +1,19 @@
 <%= require('@parts/header.ejs')({title: 'Frontpage' }) %>
 
+
   <div class="frontpage">
 
     <div class="frontpage__advantage-block-circle">
       <img alt="">
 
-      <div class="frontpage__advantage-block-inner-circle"></div>
+      <div class="frontpage__advantage-block-inner-circle">
+        <svg width="60" height="60" viewPort="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <circle r="30" cx="30" cy="30" stroke="#fff" fill="transparent" stroke-width="2" stroke-dasharray="600"
+            stroke-dashoffset="0"></circle>
+          <circle id="progress" r="30" cx="30" cy="30" stroke="#fff" fill="transparent" stroke-width="4"
+            stroke-dasharray="600" stroke-dashoffset="0"></circle>
+        </svg>
+      </div>
     </div>
     <div class="frontpage__gradient">
 
@@ -24,13 +32,14 @@
               <div class="col-md-7">
                 <div class="hero__img">
 
-                  <picture>
-                    <source class="sm" srcset="<%=require('@assets/img/product_sm.png')%>" media="(max-width: 600px)">
-                    <source class="xl" srcset="<%=require('@assets/img/product_xl.png')%>">
-                    <img src="<%=require('@assets/img/product_sm.png')%>" data-lazy
-                      data-lazy-sm="<%=require('@assets/img/product_sm_2.gif')%>"
-                      data-lazy-xl="<%=require('@assets/img/product_xl.gif')%>" alt="">
-                  </picture>
+                  <video playsinline autoplay muted loop data-keepplaying>
+                    <source src="<%=require('@assets/video/pack.mov')%>" data-lazy-video
+                      data-xl="<%=require('@assets/video/pack_xl.mov')%>"
+                      data-sm="<%=require('@assets/video/pack.mov')%>" type="video/quicktime">
+                    <source src="<%=require('@assets/video/pack.webm')%>" type="video/webm">
+                  </video>
+
+                  <img data-suspended src="<%=require('@assets/video/pack.png')%>" alt="">
 
                 </div>
               </div>
@@ -200,9 +209,13 @@
         data-color="#9f00ff" data-rotation="0" data-icon="<%=require(`@assets/img/icons/ligtning.svg`)%>">
         <div class="container">
           <div class="advantage-block__wrap">
-            <video class="advantage-block__video advantage-block__video--hidden" loop playsinline autoplay>
-              <source src="<%=require(`@assets/video/advantage_1_xl.webm`)%>" type="video/webm">
-            </video>
+            <div class="advantage-block__video-wrap advantage-block__video-wrap--hidden">
+              <video class="advantage-block__video" data-keepplaying muted loop playsinline autoplay>
+                <source src="<%=require(`@assets/video/advantage_1.webm`)%>" type="video/webm">
+                <source src="<%=require(`@assets/video/advantage_1.mov`)%>" type="video/quicktime">
+              </video>
+              <img data-suspended src="<%=require('@assets/video/advantage_1.png')%>" alt="">
+            </div>
             <div class="advantage-block__info advantage-block__info--hidden">
               <h2 class="advantage-block__heading">
                 Тонизирует и наполняет энергией
@@ -218,7 +231,7 @@
                   Состав
                 </a>
                 <a href="" class="advantage-block__btn">
-                  <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="20" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M7.49449 3.87916H7.38933C6.49081 3.88492 5.62885 4.23607 4.98158 4.86004C4.62714 5.18649 4.34167 5.58077 4.14202 6.01956C3.94238 6.45836 3.83261 6.93277 3.81922 7.41477C3.79834 8.37925 4.1589 9.31293 4.82239 10.0125C5.48587 10.7121 6.39854 11.1209 7.36165 11.1499C7.83274 11.1632 8.3018 11.0829 8.74168 10.9136C9.18157 10.7443 9.58356 10.4893 9.92438 10.1635C10.2769 9.83409 10.5599 9.43735 10.7567 8.99666C10.9534 8.55597 11.06 8.08026 11.0701 7.59764C11.0896 7.1158 11.0114 6.635 10.8403 6.18419C10.6693 5.73339 10.4089 5.3219 10.0748 4.97449C9.74078 4.62709 9.33996 4.35095 8.89651 4.16271C8.45306 3.97447 7.97615 3.87802 7.49449 3.87916ZM9.3266 9.37099C9.08089 9.62079 8.7879 9.81904 8.46477 9.95415C8.14165 10.0893 7.79486 10.1585 7.44468 10.1579C7.00878 10.1592 6.57928 10.0528 6.19423 9.84828C5.80917 9.64372 5.48043 9.34726 5.23711 8.98515C4.99379 8.62303 4.84341 8.20645 4.79926 7.77226C4.75512 7.33808 4.81858 6.89969 4.98403 6.49592C5.14948 6.09215 5.41182 5.73545 5.74781 5.45741C6.0838 5.17936 6.48308 4.98855 6.9103 4.90186C7.33752 4.81517 7.77949 4.83529 8.1971 4.96042C8.6147 5.08555 8.99505 5.31184 9.30446 5.61926C9.55412 5.86274 9.75306 6.15341 9.88973 6.47442C10.0264 6.79542 10.0981 7.14039 10.1007 7.48934C10.1033 7.83828 10.0367 8.18427 9.90473 8.50726C9.7728 8.83026 9.57818 9.12383 9.33213 9.37099H9.3266Z"
                       fill="white" />
@@ -240,10 +253,13 @@
         data-color="#378fff" data-rotation="90" data-icon="<%=require(`@assets/img/icons/cancel.svg`)%>">
         <div class="container">
           <div class="advantage-block__wrap">
-            <video class="advantage-block__video advantage-block__video--hidden" loop playsinline autoplay>
-              <source src="<%=require(`@assets/video/advantage_2_xl.webm`)%>" type="video/webm">
-              <source src="<%=require(`@assets/video/advantage_2_xl.mp4`)%>" type="video/mp4">
-            </video>
+            <div class="advantage-block__video-wrap advantage-block__video-wrap--hidden">
+              <video class="advantage-block__video" data-keepplaying muted loop playsinline autoplay>
+                <source src="<%=require(`@assets/video/advantage_2.webm`)%>" type="video/webm">
+                <source src="<%=require(`@assets/video/advantage_2.mov`)%>" type="video/quicktime">
+              </video>
+              <img data-suspended src="<%=require('@assets/video/advantage_2.png')%>" alt="">
+            </div>
             <div class="advantage-block__info">
               <h2 class="advantage-block__heading">
                 Способствует быстрому восстановлению
@@ -259,7 +275,7 @@
                   Состав
                 </a>
                 <a href="" class="advantage-block__btn">
-                  <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="20" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M7.49449 3.87916H7.38933C6.49081 3.88492 5.62885 4.23607 4.98158 4.86004C4.62714 5.18649 4.34167 5.58077 4.14202 6.01956C3.94238 6.45836 3.83261 6.93277 3.81922 7.41477C3.79834 8.37925 4.1589 9.31293 4.82239 10.0125C5.48587 10.7121 6.39854 11.1209 7.36165 11.1499C7.83274 11.1632 8.3018 11.0829 8.74168 10.9136C9.18157 10.7443 9.58356 10.4893 9.92438 10.1635C10.2769 9.83409 10.5599 9.43735 10.7567 8.99666C10.9534 8.55597 11.06 8.08026 11.0701 7.59764C11.0896 7.1158 11.0114 6.635 10.8403 6.18419C10.6693 5.73339 10.4089 5.3219 10.0748 4.97449C9.74078 4.62709 9.33996 4.35095 8.89651 4.16271C8.45306 3.97447 7.97615 3.87802 7.49449 3.87916ZM9.3266 9.37099C9.08089 9.62079 8.7879 9.81904 8.46477 9.95415C8.14165 10.0893 7.79486 10.1585 7.44468 10.1579C7.00878 10.1592 6.57928 10.0528 6.19423 9.84828C5.80917 9.64372 5.48043 9.34726 5.23711 8.98515C4.99379 8.62303 4.84341 8.20645 4.79926 7.77226C4.75512 7.33808 4.81858 6.89969 4.98403 6.49592C5.14948 6.09215 5.41182 5.73545 5.74781 5.45741C6.0838 5.17936 6.48308 4.98855 6.9103 4.90186C7.33752 4.81517 7.77949 4.83529 8.1971 4.96042C8.6147 5.08555 8.99505 5.31184 9.30446 5.61926C9.55412 5.86274 9.75306 6.15341 9.88973 6.47442C10.0264 6.79542 10.0981 7.14039 10.1007 7.48934C10.1033 7.83828 10.0367 8.18427 9.90473 8.50726C9.7728 8.83026 9.57818 9.12383 9.33213 9.37099H9.3266Z"
                       fill="white" />
@@ -281,9 +297,13 @@
         data-color="#e3549f" data-rotation="125" data-icon="<%=require(`@assets/img/icons/smile.svg`)%>">
         <div class="container">
           <div class="advantage-block__wrap">
-            <video class="advantage-block__video advantage-block__video--hidden" loop playsinline autoplay>
-              <source src="<%=require(`@assets/video/advantage_3_xl.webm`)%>" type="video/webm">
-            </video>
+            <div class="advantage-block__video-wrap advantage-block__video-wrap--hidden">
+              <video class="advantage-block__video" data-keepplaying muted loop playsinline autoplay>
+                <source src="<%=require(`@assets/video/advantage_3.webm`)%>" type="video/webm">
+                <source src="<%=require(`@assets/video/advantage_3.mov`)%>" type="video/quicktime">
+              </video>
+              <img data-suspended src="<%=require('@assets/video/advantage_1.png')%>" alt="">
+            </div>
             <div class="advantage-block__info">
               <h2 class="advantage-block__heading">
                 Стабилизирует эмоциональное состояние
@@ -299,7 +319,7 @@
                   Состав
                 </a>
                 <a href="" class="advantage-block__btn">
-                  <svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="20" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="M7.49449 3.87916H7.38933C6.49081 3.88492 5.62885 4.23607 4.98158 4.86004C4.62714 5.18649 4.34167 5.58077 4.14202 6.01956C3.94238 6.45836 3.83261 6.93277 3.81922 7.41477C3.79834 8.37925 4.1589 9.31293 4.82239 10.0125C5.48587 10.7121 6.39854 11.1209 7.36165 11.1499C7.83274 11.1632 8.3018 11.0829 8.74168 10.9136C9.18157 10.7443 9.58356 10.4893 9.92438 10.1635C10.2769 9.83409 10.5599 9.43735 10.7567 8.99666C10.9534 8.55597 11.06 8.08026 11.0701 7.59764C11.0896 7.1158 11.0114 6.635 10.8403 6.18419C10.6693 5.73339 10.4089 5.3219 10.0748 4.97449C9.74078 4.62709 9.33996 4.35095 8.89651 4.16271C8.45306 3.97447 7.97615 3.87802 7.49449 3.87916ZM9.3266 9.37099C9.08089 9.62079 8.7879 9.81904 8.46477 9.95415C8.14165 10.0893 7.79486 10.1585 7.44468 10.1579C7.00878 10.1592 6.57928 10.0528 6.19423 9.84828C5.80917 9.64372 5.48043 9.34726 5.23711 8.98515C4.99379 8.62303 4.84341 8.20645 4.79926 7.77226C4.75512 7.33808 4.81858 6.89969 4.98403 6.49592C5.14948 6.09215 5.41182 5.73545 5.74781 5.45741C6.0838 5.17936 6.48308 4.98855 6.9103 4.90186C7.33752 4.81517 7.77949 4.83529 8.1971 4.96042C8.6147 5.08555 8.99505 5.31184 9.30446 5.61926C9.55412 5.86274 9.75306 6.15341 9.88973 6.47442C10.0264 6.79542 10.0981 7.14039 10.1007 7.48934C10.1033 7.83828 10.0367 8.18427 9.90473 8.50726C9.7728 8.83026 9.57818 9.12383 9.33213 9.37099H9.3266Z"
                       fill="white" />
@@ -311,7 +331,7 @@
                 </a>
               </div>
               <div class="advantage-block__text">
-                <img src="<%=require('@assets/img/icons/advantage3.svg')%>" alt="">
+                <img src="<%=require('@assets/img/icons/advantage3.png')%>" alt="">
               </div>
             </div>
           </div>
@@ -354,11 +374,8 @@
               <div class="col-md-6">
                 <div class="shops-list__img">
                   <picture>
-                    <source srcset='<%=require(`@assets/img/product_xl.png`)%>.webp' type='image/webp'>
-                    <source srcset='<%=require(`@assets/img/product_xl.png`)%>.webp' media="(max-width: 600px)"
-                      type='image/webp'>
-                    <source srcset="<%=require('@assets/img/product_sm.png')%>" media="(max-width: 600px)">
-                    <img src="<%=require('@assets/img/product_xl.png')%>" alt="">
+                    <source srcset="<%=require('@assets/img/boxes.png')%>.webp" type="image/webp">
+                    <img src="<%=require('@assets/img/boxes.png')%>" alt="">
                   </picture>
                 </div>
               </div>
