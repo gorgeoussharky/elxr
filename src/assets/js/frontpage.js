@@ -16,27 +16,34 @@ jQuery(($) => {
             document.querySelector('.footer').classList.add('fp-noscroll');
         }
 
-        document.querySelectorAll('.frontpage video').forEach((el) => {
-            var parent = el.parentElement;
-            var video = el;
-            var replacement = parent.querySelector('img[data-suspended]');
-            video.addEventListener('suspend', () => {
-                video.style.style.opacity = '0';
-                replacement.style.opacity = '1';
-            });
+        if (window.matchMedia('(max-width: 991px)').matches) {
+            setTimeout(() => {
+                document.querySelector('.hero__img video').play();
+            }, 500);
 
-            video.addEventListener('play', () => {
-                replacement.style.opacity = '0';
-                video.style.style.opacity = '1';
+            document.querySelectorAll('.frontpage video').forEach((el) => {
+                var parent = el.parentElement;
+                var video = el;
+                var replacement = parent.querySelector('img[data-suspended]');
+                video.addEventListener('suspend', () => {
+                    video.style.opacity = '0';
+                    replacement.style.opacity = '1';
+                    video.pause();
+                    video.play();
+                });
+
+                video.addEventListener('play', () => {
+                    replacement.style.opacity = '0';
+                    video.style.opacity = '1';
+                });
             });
-        });
+        }
 
         const options = {
             autoScrolling: true,
             anchors: ['hero', 'use-cases', 'slogan-ticker', 'advantage-block1', 'advantage-block2', 'advantage-block3', 'shops', 'faq'],
             fitToSection: true,
             verticalCentered: true,
-            touchSensitivity: 25,
             scrollOverflow: true,
             bigSectionsDestination: 'top',
             scrollOverflowOptions: {
@@ -121,6 +128,10 @@ jQuery(($) => {
 
         if (window.matchMedia('(max-width: 1024px)').matches) {
             options.touchSensitivity = 12;
+        }
+
+        if (window.navigator.platform.toUpperCase().indexOf('MAC') >= 0) {
+            options.scrollingSpeed = 1100;
         }
 
         fullpage = new Fullpage('#frontpage', options);
@@ -221,9 +232,8 @@ jQuery(($) => {
             cellAlign: 'center',
             prevNextButtons: false,
             wrapAround: true,
-            autoPlay: 5000,
+            autoPlay: false,
             adaptiveHeight: true,
-            autoplay: true,
         });
 
         document.querySelectorAll('.use-cases__carousel-control').forEach((el) => {

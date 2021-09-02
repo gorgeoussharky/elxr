@@ -9,7 +9,8 @@
     padding: rem(22px 0);
 
     @include media-breakpoint-down(md) {
-        width: calc(100% - 30px);
+        width: 100%;
+        padding: rem(22px 30px);
     }
 
     &__wrap {
@@ -47,6 +48,9 @@
     }
 
     &--dark {
+        @include media-breakpoint-down(md) {
+            background-color: #fff;
+        }
         .header__logo {
             path {
                 fill: $dark;
